@@ -88,13 +88,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Dev\GLUT\include;C:\Dev\glext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Dev\glext\lib;C:\Dev\GLUT\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;glut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -142,17 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Grille.cpp" />
     <ClCompile Include="Partie.cpp" />
+    <ClCompile Include="PorteAvion.cpp" />
+    <ClCompile Include="Croiseur.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AI.h" />
     <ClInclude Include="Bateau.h" />
     <ClInclude Include="Case.h" />
     <ClInclude Include="Grille.h" />
-    <ClInclude Include="Joueur.h" />
+    <ClInclude Include="Croiseur.h" />
+    <ClInclude Include="PorteAvion.h" />
     <ClInclude Include="Partie.h" />
     <ClInclude Include="Position.h" />
   </ItemGroup>
