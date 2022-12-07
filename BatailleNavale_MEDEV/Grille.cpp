@@ -1,6 +1,9 @@
 
 #include "Grille.h"
 
+Grille::Grille(Joueur joueur) {
+	owner = joueur;
+}
 
 void Grille::afficheAll() {
 	afficheGrille();

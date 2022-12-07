@@ -5,14 +5,16 @@
 
 #include "Position.h"
 #include "Case.h"
+#include "Joueur.h"
 
 using namespace std;
 
 
 class Grille {
 	vector<Case*> caseVect;
+	Joueur owner;
 public:
-	Grille() {};
+	Grille(Joueur joueur) {};
 	void afficheAll();
 	void afficheGrille();
 };
