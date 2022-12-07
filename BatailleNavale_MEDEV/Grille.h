@@ -14,7 +14,7 @@ class Grille {
 	vector<Case*> caseVect;
 	Joueur owner;
 public:
-	Grille(Joueur joueur) {};
+	Grille(Joueur joueur) { owner = joueur; };
 	void afficheAll();
 	void afficheGrille();
 };
