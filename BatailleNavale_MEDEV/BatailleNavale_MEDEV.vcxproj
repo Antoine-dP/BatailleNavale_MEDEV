@@ -147,6 +147,7 @@
     <ClInclude Include="Bateau.h" />
     <ClInclude Include="Case.h" />
     <ClInclude Include="Grille.h" />
+    <ClInclude Include="Joueur.h" />
     <ClInclude Include="Partie.h" />
     <ClInclude Include="Position.h" />
   </ItemGroup>
