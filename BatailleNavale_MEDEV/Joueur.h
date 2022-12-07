@@ -2,8 +2,8 @@
 
 class Joueur
 {
-private:
-	int type;
+protected:
+	int ID;
 
 };
 
