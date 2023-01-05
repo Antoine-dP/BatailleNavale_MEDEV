@@ -10,12 +10,12 @@ using namespace std;
 class Case {
 	Position position;
 public:
-	Case(Position p, int _etat) {
+	Case(Position p) {
 		position = p;
 	}
-	Case(int x, int y, int _etat) {
+	Case(int x, int y) {
 		position.x = x;
 		position.y = y;
 	}
-	//virtual void affiche() = 0;
+	virtual void affiche();
 };

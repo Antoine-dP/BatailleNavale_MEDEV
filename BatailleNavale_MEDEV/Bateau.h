@@ -14,14 +14,16 @@ class Bateau : public Case{
 	int size; //taille du bateau
 	bool isVertical; //orientation du bateau
 	vector<bool> casesTouchees;
-	//Constructeur
-	Bateau(Position p, bool orientation, int taille) : Case(p) {
-		for (int i = 0; i < taille; i++) { casesTouchees.push_back(false); };
-	};
-	Bateau(int x, int y, bool orientation, int taille) : Case(x, y) {
-		for (int i = 0; i < taille; i++) { casesTouchees.push_back(false); };
-	};
+
 	//Méthodes
 	public: 
+		//Constructeur
+		Bateau(Position p, bool orientation, int taille) : Case(p) {
+			for (int i = 0; i < taille; i++) { casesTouchees.push_back(false); };
+		};
+		Bateau(int x, int y, bool orientation, int taille) : Case(x, y) {
+			for (int i = 0; i < taille; i++) { casesTouchees.push_back(false); };
+		};
+
 		void Afficher(/*Joueur*/) {  };
 };
