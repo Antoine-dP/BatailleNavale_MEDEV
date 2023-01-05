@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include "Position.h"
+#include"Bateau.h"
+#include"ContreTorpilleur.h"
 
 using namespace std;
 
@@ -21,5 +23,5 @@ public:
 		position.y = y;
 		etat = _etat;
 	}
-	virtual void affiche() = 0;
+	//virtual void affiche() = 0;
 };
