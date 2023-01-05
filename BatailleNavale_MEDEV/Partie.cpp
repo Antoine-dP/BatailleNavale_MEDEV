@@ -13,6 +13,17 @@ void Partie::SetupGrilleIA() {
 }
 
 void Partie::SetupGrilleJoueur() {
+	//TODO (a finir/refaire)
+	// Poser les bateaux
+	cout << "Vous allez poser vos bateaux\n";
+	// ContreTorpilleur
+	Position posCT;
+	cout << "Contre torpilleur (size 3)\n" << "Choix position en x : ";
+	cin >> posCT.x;
+	cout << "\nChoix position en y : ";
+	cin >> posCT.y;
+	cout << "\nChoix orientation ";
+
 	;
 }
 
