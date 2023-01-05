@@ -4,6 +4,8 @@
 #include "Grille.h"
 #include "Position.h"
 #include "Joueur.h"
+#include "GlobalVars.h"
+
 
 class Partie {
 protected:
