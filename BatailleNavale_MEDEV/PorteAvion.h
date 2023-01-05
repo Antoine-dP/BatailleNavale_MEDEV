@@ -12,7 +12,7 @@ class PorteAvion : public Bateau {
 	int size = 5;
 	//Constructeur 
 	public:	
-	PorteAvion(Position, bool);
+	PorteAvion(Position p, bool orientation);
 	//méthode
 	
 };

@@ -8,15 +8,19 @@ using namespace std;
 //#include "Joueur.h"
 #include "Position.h"
 
-class Bateau {
+class Bateau : public Case{
 	//Attributs 
 	protected :
 	int size; //taille du bateau
 	bool isVertical; //orientation du bateau
 	vector<bool> casesTouchees;
-	Position pos;//position de la case en haut à gauche du bateau
 	//Constructeur
-
+	Bateau(Position p, bool orientation, int taille) : Case(p) {
+		for (int i = 0; i < taille; i++) { casesTouchees.push_back(false); };
+	};
+	Bateau(int x, int y, bool orientation, int taille) : Case(x, y) {
+		for (int i = 0; i < taille; i++) { casesTouchees.push_back(false); };
+	};
 	//Méthodes
 	public: 
 		void Afficher(/*Joueur*/) {  };

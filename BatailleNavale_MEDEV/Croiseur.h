@@ -11,6 +11,6 @@ protected:
 	int size = 4;
 	//Constructeur 
 public:
-	Croiseur(Position,bool);
+	Croiseur(Position p, bool orientation);
 	//méthode
 };

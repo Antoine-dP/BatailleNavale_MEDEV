@@ -8,10 +8,10 @@ using namespace std;
 class ContreTorpilleur : public Bateau {
 	//Attributs
 protected:
-	int size = 3;
 	//Constructeur 
 public:
-	ContreTorpilleur(Position, bool);
+	ContreTorpilleur(Position p, bool orientation) :Bateau(p, orientation, 3) {};
+	ContreTorpilleur(int x, int y, bool orientation) :Bateau(x, y, orientation, 3) {};
 	//méthode
 	
 };

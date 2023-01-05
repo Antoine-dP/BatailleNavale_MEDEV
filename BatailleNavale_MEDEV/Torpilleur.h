@@ -11,7 +11,7 @@ protected:
 	int size = 2;
 	//Constructeur 
 public:
-	Torpilleur(Position, bool);
+	Torpilleur(Position p, bool orientation);
 	//méthode
 	
 };

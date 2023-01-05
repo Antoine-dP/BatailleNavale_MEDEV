@@ -11,7 +11,7 @@ protected:
 	int size = 3;
 	//Constructeur 
 public:
-	SousMarin(Position, bool);
+	SousMarin(Position p, bool orientation);
 	//méthode
 	
 };
