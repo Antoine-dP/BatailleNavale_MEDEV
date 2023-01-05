@@ -16,6 +16,9 @@
     <Filter Include="Fichiers sources\Bateaux">
       <UniqueIdentifier>{04391489-ef2a-4f3c-9a41-7fc2ae9860b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Bateaux">
+      <UniqueIdentifier>{8fb4f9f9-52fd-4b98-af06-a461fa8e9a31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -53,26 +56,26 @@
     <ClInclude Include="Position.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Torpilleur.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Bateau.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Case.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Bateau.h">
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
+    </ClInclude>
     <ClInclude Include="ContreTorpilleur.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
     </ClInclude>
     <ClInclude Include="Croiseur.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
     </ClInclude>
     <ClInclude Include="PorteAvion.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
     </ClInclude>
     <ClInclude Include="SousMarin.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
+    </ClInclude>
+    <ClInclude Include="Torpilleur.h">
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
