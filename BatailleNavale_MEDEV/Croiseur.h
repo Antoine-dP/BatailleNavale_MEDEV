@@ -8,9 +8,9 @@ using namespace std;
 class Croiseur : public Bateau {
 	//Attributs
 protected:
-	int size = 4;
 	//Constructeur 
 public:
-	Croiseur(Position p, bool orientation);
+	Croiseur(Position p, bool orientation) :Bateau(p, orientation, 4) {};
+	Croiseur(int x, int y, bool orientation) :Bateau(x, y, orientation, 4) {};
 	//méthode
 };

@@ -8,10 +8,10 @@ using namespace std;
 class SousMarin : public Bateau {
 	//Attributs
 protected:
-	int size = 3;
 	//Constructeur 
 public:
-	SousMarin(Position p, bool orientation);
+	SousMarin(Position p, bool orientation) :Bateau(p, orientation, 3) {};
+	SousMarin(int x, int y, bool orientation) :Bateau(x, y, orientation, 3) {};
 	//méthode
 	
 };
