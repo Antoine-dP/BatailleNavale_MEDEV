@@ -20,8 +20,7 @@
 #include <GL/glut.h>
 #include <GL/glext.h>
 
-//#include <GLFW/glfw3.h>
-//#include <glad.h>
+
 #define GL_GLEXT_PROTOTYPES
 
 #endif
