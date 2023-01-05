@@ -13,12 +13,23 @@ AI::AI(int _difficulte) {
 	}
 }
 
+
 Position AI::jouer() {
 	//TODO (non fini)
 
 	// IA nulle : random position
 	if (difficulte == 0) {
+		// Génère un nombre aléatoire entre 0 et la taille du tableau dispo
+		int index = rand() % dispo.size();
 
+		// Enregistre l'élément à enlever dans la variable de résultat
+		Position posChoisie = dispo[index];
+
+		// Enlève l'élément de dispo
+		dispo.erase(dispo.begin() + index);
+		essai.push_back(dispo[index]);
+
+		return posChoisie;
 	}
 
 	//CODE A RETIRER EN BAS
