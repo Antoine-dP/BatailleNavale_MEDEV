@@ -1,7 +1,30 @@
 // BatailleNavale_MEDEV.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
+
+#include "Windows.h"
 #include <iostream>
+#include <stdio.h>
+#include <vector>
+
+#include "Partie.h"
+
+
+// Fichiers d'en-têtes pour OpenGL et GLUT
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#include <GLUT/glut.h>
+#else
+//#define GLFW_INCLUDE_NONE
+#include <GL/gl.h>
+#include <GL/glut.h>
+#include <GL/glext.h>
+
+//#include <GLFW/glfw3.h>
+//#include <glad.h>
+#define GL_GLEXT_PROTOTYPES
+
+#endif
 
 #include "Partie.h"
 
