@@ -3,6 +3,8 @@
 #include "Joueur.h"
 #include <vector>
 
+using namespace std;
+
 class AI : public Joueur {
 private:
 	int difficulte;
