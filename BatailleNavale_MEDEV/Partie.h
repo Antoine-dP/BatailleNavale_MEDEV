@@ -12,7 +12,7 @@ protected:
 	Joueur joueur1;
 	Joueur joueur2;
 public:
-	Partie(int aiDifficulty) {};
+	Partie(int aiDifficulty) ;
 	void SetupGrilleIA();
 	void SetupGrilleJoueur();
 	void JouerTour();
