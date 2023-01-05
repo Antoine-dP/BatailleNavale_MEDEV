@@ -156,6 +156,7 @@
     <ClInclude Include="AI.h" />
     <ClInclude Include="Bateau.h" />
     <ClInclude Include="Case.h" />
+    <ClInclude Include="GlobalVars.h" />
     <ClInclude Include="Grille.h" />
     <ClInclude Include="Croiseur.h" />
     <ClInclude Include="ContreTorpilleur.h" />
