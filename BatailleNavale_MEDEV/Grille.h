@@ -15,6 +15,7 @@ class Grille {
 	Joueur owner;
 public:
 	Grille(Joueur joueur) { owner = joueur; };
+	Grille() {};
 	void afficheAll();
 	void afficheGrille();
 };
