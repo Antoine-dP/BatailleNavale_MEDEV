@@ -45,6 +45,9 @@
     <ClCompile Include="SousMarin.cpp">
       <Filter>Fichiers sources\Bateaux</Filter>
     </ClCompile>
+    <ClCompile Include="AI.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Grille.h">
@@ -76,6 +79,12 @@
     </ClInclude>
     <ClInclude Include="Torpilleur.h">
       <Filter>Fichiers d%27en-tête\Bateaux</Filter>
+    </ClInclude>
+    <ClInclude Include="AI.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Joueur.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
