@@ -13,11 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Bateaux">
+      <UniqueIdentifier>{142b6ad5-c71e-4d00-bc87-feca409552a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Bateaux">
+      <UniqueIdentifier>{04391489-ef2a-4f3c-9a41-7fc2ae9860b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AI.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -27,21 +30,27 @@
     <ClCompile Include="Partie.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Croiseur.cpp">
+      <Filter>Fichiers sources\Bateaux</Filter>
+    </ClCompile>
+    <ClCompile Include="PorteAvion.cpp">
+      <Filter>Fichiers sources\Bateaux</Filter>
+    </ClCompile>
+    <ClCompile Include="Torpilleur.cpp">
+      <Filter>Fichiers sources\Bateaux</Filter>
+    </ClCompile>
+    <ClCompile Include="ContreTorpilleur.cpp">
+      <Filter>Fichiers sources\Bateaux</Filter>
+    </ClCompile>
+    <ClCompile Include="SousMarin.cpp">
+      <Filter>Fichiers sources\Bateaux</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AI.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Bateau.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Case.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Grille.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Joueur.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Partie.h">
@@ -49,6 +58,24 @@
     </ClInclude>
     <ClInclude Include="Position.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Bateau.h">
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
+    </ClInclude>
+    <ClInclude Include="Croiseur.h">
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
+    </ClInclude>
+    <ClInclude Include="ContreTorpilleur.h">
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
+    </ClInclude>
+    <ClInclude Include="PorteAvion.h">
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
+    </ClInclude>
+    <ClInclude Include="SousMarin.h">
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
+    </ClInclude>
+    <ClInclude Include="Torpilleur.h">
+      <Filter>Fichiers d%27en-tête\Bateaux</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

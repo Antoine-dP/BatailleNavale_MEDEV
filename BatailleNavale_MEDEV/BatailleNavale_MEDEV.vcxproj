@@ -144,12 +144,18 @@
     <ClCompile Include="Partie.cpp" />
     <ClCompile Include="PorteAvion.cpp" />
     <ClCompile Include="Croiseur.cpp" />
+    <ClCompile Include="ContreTorpilleur.cpp" />
+    <ClCompile Include="SousMarin.cpp" />
+    <ClCompile Include="Torpilleur.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bateau.h" />
     <ClInclude Include="Case.h" />
     <ClInclude Include="Grille.h" />
     <ClInclude Include="Croiseur.h" />
+    <ClInclude Include="ContreTorpilleur.h" />
+    <ClInclude Include="Torpilleur.h" />
+    <ClInclude Include="SousMarin.h" />
     <ClInclude Include="PorteAvion.h" />
     <ClInclude Include="Partie.h" />
     <ClInclude Include="Position.h" />

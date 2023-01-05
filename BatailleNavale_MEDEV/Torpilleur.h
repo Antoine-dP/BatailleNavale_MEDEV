@@ -5,12 +5,13 @@ using namespace std;
 
 #include "Bateau.h"
 
-class Croiseur : public Bateau {
+class Torpilleur : public Bateau {
 	//Attributs
 protected:
-	int size = 4;
+	int size = 2;
 	//Constructeur 
 public:
-	Croiseur(Position,bool);
+	Torpilleur(Position, bool);
 	//méthode
+	
 };
