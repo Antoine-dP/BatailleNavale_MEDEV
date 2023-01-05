@@ -2,8 +2,6 @@
 
 #include <iostream>
 #include "Position.h"
-#include"Bateau.h"
-#include"ContreTorpilleur.h"
 
 using namespace std;
 
