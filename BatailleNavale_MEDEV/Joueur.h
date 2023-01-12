@@ -11,6 +11,7 @@ public:
 	Joueur(int longueur, int largeur);
 	~Joueur();
 	void placerBateaux();
+	bool tirer(Grille grilleIA);
 
 };
 

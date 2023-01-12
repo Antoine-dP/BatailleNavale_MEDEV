@@ -85,3 +85,15 @@ void Joueur::placerBateaux() {
 		possible = grilleJ.placerBateau(2, orientation, posX, posY);
 	}
 }
+
+bool Joueur::tirer(Grille grilleIA) {
+	int posX, posY;
+
+	cout << "Où voulez-vous tirer ?" << endl;
+	cout << "Position en x : ";
+	cin >> posX;
+	cout << endl << "Position en y : ";
+	cin >> posY;
+	cout << endl << endl;
+	return grilleIA.tirer(posX, posY);
+}
