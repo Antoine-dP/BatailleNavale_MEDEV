@@ -33,7 +33,7 @@ void Partie::SetupGrilleJoueur() {
 	cout << "\nChoix orientation ";
 	cin >> isVertical;
 
-	ContreTorpilleur(posCT, isVertical);
+	//ContreTorpilleur(posCT, isVertical);
 	;
 }
 
