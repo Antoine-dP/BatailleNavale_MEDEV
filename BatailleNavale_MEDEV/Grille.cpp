@@ -22,7 +22,7 @@ void Grille::afficher()
 }
 
 // Implémentation de la méthode placerBateau de la classe Grille
-void Grille::placerBateau(int longueurBateau, char orientation, int x, int y)
+bool Grille::placerBateau(int longueurBateau, char orientation, int x, int y)
 {
     if (orientation == 'v')
     {
@@ -30,7 +30,7 @@ void Grille::placerBateau(int longueurBateau, char orientation, int x, int y)
         if (x + longueurBateau > this->longueur)
         {
             std::cout << "Impossible de placer le bateau : il dépasse de la grille sur l'axe des abscisses." << std::endl;
-            return;
+            return false;
         }
 
         // Vérification que les cases où le bateau doit être placé ne sont pas déjà occupées par un autre bateau
@@ -39,7 +39,7 @@ void Grille::placerBateau(int longueurBateau, char orientation, int x, int y)
             if (this->cases[i][y] != 0)
             {
                 std::cout << "Impossible de placer le bateau : la case (" << i << ", " << y << ") est déjà occupée." << std::endl;
-                return;
+                return false;
             }
         }
 
@@ -48,6 +48,7 @@ void Grille::placerBateau(int longueurBateau, char orientation, int x, int y)
         {
             this->cases[i][y] = 1;
         }
+        return true;
     }
     else if (orientation == 'h')
     {
@@ -55,7 +56,7 @@ void Grille::placerBateau(int longueurBateau, char orientation, int x, int y)
         if (y + longueurBateau > this->largeur)
         {
             std::cout << "Impossible de placer le bateau : il dépasse de la grille sur l'axe des ordonnées." << std::endl;
-            return;
+            return false;
         }
 
         // Vérification que les cases où le bateau doit être placé ne sont pas déjà occupées par un autre bateau
@@ -64,7 +65,7 @@ void Grille::placerBateau(int longueurBateau, char orientation, int x, int y)
             if (this->cases[x][j] != 0)
             {
                 std::cout << "Impossible de placer le bateau : la case (" << x << ", " << j << ") est déjà occupée." << std::endl;
-                return;
+                return false;
             }
         }
 
@@ -73,6 +74,7 @@ void Grille::placerBateau(int longueurBateau, char orientation, int x, int y)
         {
             this->cases[x][j] = 1;
         }
+        return true;
     }
 }
 
