@@ -1,5 +1,100 @@
-
 #include "Grille.h"
+
+// Implémentation du constructeur de la classe Grille
+Grille::Grille(int longueur, int largeur)
+{
+    this->longueur = longueur;
+    this->largeur = largeur;
+    this->cases = std::vector<std::vector<int>>(longueur, std::vector<int>(largeur, 0));
+}
+
+// Implémentation de la méthode afficher de la classe Grille
+void Grille::afficher()
+{
+    for (int i = 0; i < this->longueur; i++)
+    {
+        for (int j = 0; j < this->largeur; j++)
+        {
+            std::cout << this->cases[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+// Implémentation de la méthode placerBateau de la classe Grille
+void Grille::placerBateau(int longueurBateau, char orientation, int x, int y)
+{
+    if (orientation == 'v')
+    {
+        // Vérification que le bateau ne dépasse pas de la grille sur l'axe des abscisses
+        if (x + longueurBateau > this->longueur)
+        {
+            std::cout << "Impossible de placer le bateau : il dépasse de la grille sur l'axe des abscisses." << std::endl;
+            return;
+        }
+
+        // Vérification que les cases où le bateau doit être placé ne sont pas déjà occupées par un autre bateau
+        for (int i = x; i < x + longueurBateau; i++)
+        {
+            if (this->cases[i][y] != 0)
+            {
+                std::cout << "Impossible de placer le bateau : la case (" << i << ", " << y << ") est déjà occupée." << std::endl;
+                return;
+            }
+        }
+
+        // Placement du bateau sur la grille
+        for (int i = x; i < x + longueurBateau; i++)
+        {
+            this->cases[i][y] = 1;
+        }
+    }
+    else if (orientation == 'h')
+    {
+        // Vérification que le bateau ne dépasse pas de la grille sur l'axe des ordonnées
+        if (y + longueurBateau > this->largeur)
+        {
+            std::cout << "Impossible de placer le bateau : il dépasse de la grille sur l'axe des ordonnées." << std::endl;
+            return;
+        }
+
+        // Vérification que les cases où le bateau doit être placé ne sont pas déjà occupées par un autre bateau
+        for (int j = y; j < y + longueurBateau; j++)
+        {
+            if (this->cases[x][j] != 0)
+            {
+                std::cout << "Impossible de placer le bateau : la case (" << x << ", " << j << ") est déjà occupée." << std::endl;
+                return;
+            }
+        }
+
+        // Placement du bateau sur la grille
+        for (int j = y; j < y + longueurBateau; j++)
+        {
+            this->cases[x][j] = 1;
+        }
+    }
+}
+
+bool Grille::tirer(int x, int y)
+{
+    if (this->cases[x][y] == 1)
+    {
+        // Si la case contient un bateau (indiqué par la valeur 1),
+        // on modifie la valeur de la case pour indiquer que le bateau a été touché
+        this->cases[x][y] = 2;
+        return true; // On retourne true pour indiquer que le tir a touché un bateau
+    }
+    else
+    {
+        // Si la case ne contient pas de bateau (indiqué par la valeur 0),
+        // on modifie la valeur de la case pour indiquer que la case a été visée
+        this->cases[x][y] = 3;
+        return false; // On retourne false pour indiquer que le tir a raté
+    }
+}
+
+// OPENGL
 
 void Grille::afficheAll() {
 	afficheGrille();
@@ -10,7 +105,6 @@ void Grille::afficheAll() {
 	}
 }
 
-//
 // Dessine un carré
 void Grille::dessineLigne(double largeur, double hauteur, int x, int y)
 {

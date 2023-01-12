@@ -3,21 +3,32 @@
 #include <iostream>
 #include <vector>
 
-#include "Position.h"
-#include "Case.h"
-#include "Joueur.h"
-#include "GlobalVars.h"
+// Définition de la classe Grille qui représente la grille de jeu
+class Grille
+{
+private:
+    // Attributs privés de la classe Grille
+    int longueur;
+    int largeur;
+    std::vector<std::vector<int>> cases;
 
-using namespace std;
-
-
-class Grille {
-	vector<Case*> caseVect;
-	Joueur owner;
 public:
-	Grille(Joueur joueur) { owner = joueur; };
-	Grille() {};
-	void afficheAll();
-	void afficheGrille();
-	void dessineLigne(double largeur, double hauteur, int x, int y);
+    // Constructeur de la classe Grille
+    Grille(int longueur, int largeur);
+
+    // Méthodes publiques de la classe Grille
+    void afficher(); // Afficher dans la commande
+    void placerBateau(int longueurBateau, char orientation, int x, int y);
+    bool tirer(int x, int y);
+
+    int getLongueur() { return longueur; }
+    int getLargeur() { return largeur; }
+    int getCase(int i, int j) { return cases[i][j]; }
+    void setCase(int i, int j, int valeur) { cases[i][j] = valeur; }
+
+    // OPENGL
+    void afficheAll();
+    void afficheGrille();
+    void dessineLigne(double largeur, double hauteur, int x, int y);
+
 };
