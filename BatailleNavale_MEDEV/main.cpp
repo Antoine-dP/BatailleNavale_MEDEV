@@ -119,10 +119,7 @@ GLvoid affichage() {
 
     glMatrixMode(GL_MODELVIEW);
 
-    //dessineRectangle(1, 1);
-    grille.afficheGrille();
-    grille.dessineCroix(3, 6, true);
-    grille.dessineBateau(3, 6);
+    grille.afficheAll();
 
     glFlush();
     glutSwapBuffers();

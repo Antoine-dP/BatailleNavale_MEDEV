@@ -189,21 +189,24 @@ void Grille::dessineCroix(int posX, int posY, bool touche) {
 
 void Grille::afficheCase() 
 {
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            // Juste un bateau
-            if (cases[i][j] == 1) {
-                dessineBateau(i, j);
-            }
-            // Juste un tir loupé
-            else if (cases[i][j] == 3) {
-                dessineCroix(i, j, false);
-            }
-            // Un tir réussi
-            else if (cases[i][j] == 2) {
-                dessineCroix(i, j, true);
-                dessineBateau(i, j);                
+    // on vérifie que les cases existent
+    if (cases.size() > 0) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                // Juste un bateau
+                if (cases[i][j] == 1) {
+                    dessineBateau(i, j);
+                }
+                // Juste un tir loupé
+                else if (cases[i][j] == 3) {
+                    dessineCroix(i, j, false);
+                }
+                // Un tir réussi
+                else if (cases[i][j] == 2) {
+                    dessineCroix(i, j, true);
+                    dessineBateau(i, j);
+                }
             }
         }
-    }
+    }    
 }
