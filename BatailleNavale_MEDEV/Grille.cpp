@@ -161,10 +161,15 @@ void Grille::dessineBateau(int posX, int posY) {
 
 }
 
-void Grille::dessineCroix(int posX, int posY) {
+void Grille::dessineCroix(int posX, int posY, bool touche) {
     glBegin(GL_QUADS);
 
-    glColor3f(0.7f, 0.7f, 1.0f);
+    if (touche) {
+        glColor3f(1.0f, 0.4f, 0.4f);
+    }
+    else {
+        glColor3f(0.7f, 0.7f, 0.7f);
+    }
 
     // 4 sommets du carré
     for (int j = 0; j < 4; j++)
@@ -181,6 +186,7 @@ void Grille::dessineCroix(int posX, int posY) {
     glEnd();
 }
 
+
 void Grille::afficheCase() 
 {
     for (int i = 0; i < 10; i++) {
@@ -189,15 +195,15 @@ void Grille::afficheCase()
             if (cases[i][j] == 1) {
                 dessineBateau(i, j);
             }
-            //// Juste un tir loupé
-            //else if (cases[i][j] == 3) {
-            //    dessineCroix(i, j);
-            //}
-            //// Un tir réussi
-            //else if (cases[i][j] == 2) {
-            //    dessineBateau(i, j);
-            //    dessineCroix(i, j);
-            //}
+            // Juste un tir loupé
+            else if (cases[i][j] == 3) {
+                dessineCroix(i, j, false);
+            }
+            // Un tir réussi
+            else if (cases[i][j] == 2) {
+                dessineCroix(i, j, true);
+                dessineBateau(i, j);                
+            }
         }
     }
 }

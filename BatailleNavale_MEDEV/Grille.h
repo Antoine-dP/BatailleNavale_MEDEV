@@ -36,5 +36,5 @@ public:
     void dessineLigne(double largeur, double hauteur, int x, int y);
     void afficheCase();
     void dessineBateau(int i, int j);
-    void dessineCroix(int i, int j);
+    void dessineCroix(int i, int j, bool touche);
 };
