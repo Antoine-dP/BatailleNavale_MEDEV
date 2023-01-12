@@ -10,11 +10,14 @@ private:
     // Attributs privés de la classe Grille
     int longueur;
     int largeur;
+    //int bateau;
     std::vector<std::vector<int>> cases;
 
 public:
     // Constructeur de la classe Grille
+    Grille() {};
     Grille(int longueur, int largeur);
+
 
     // Méthodes publiques de la classe Grille
     void afficher(); // Afficher dans la commande
