@@ -25,24 +25,13 @@ void Partie::SetupGrilleJoueur() {
 
 	Position posCT;
 	bool isVertical;
-	cout << "Premier bateu : Contre torpilleur (size 3)";
+	cout << "Premier bateu : Contre torpilleur (size 3)\n"
+		 << "Choix position en x : ";
+	cin >> posCT.x;
+	cout << "\nChoix position en y : ";
+	cin >> posCT.y;
 	cout << "\nChoix orientation ";
 	cin >> isVertical;
-	// Vérification de la possibilité de poser le bateau
-	if (isVertical) {
-		cout << "\nChoix position en x : ";
-		cin >> posCT.x;
-		while (posCT.x >= 10 && posCT.x < 0) {
-			cout << "\nPosition invalide, reessayez : ";
-			cin >> posCT.x;
-		}
-		cout << "\nChoix position en y : ";
-		cin >> posCT.y;
-		while (posCT.y >= 7 && posCT.x < 0) {
-			cout << "\nPosition invalide, ressayez : ";
-			cin >> posCT.y;
-		}
-	}
 
 	//ContreTorpilleur(posCT, isVertical);
 	;

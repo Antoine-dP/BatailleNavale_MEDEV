@@ -6,6 +6,7 @@
 #include "Position.h"
 #include "Case.h"
 #include "Joueur.h"
+#include "GlobalVars.h"
 
 using namespace std;
 
@@ -18,4 +19,5 @@ public:
 	Grille() {};
 	void afficheAll();
 	void afficheGrille();
+	void dessineLigne(double largeur, double hauteur, int x, int y);
 };
