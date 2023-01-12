@@ -121,7 +121,7 @@ GLvoid affichage() {
     //dessineRectangle(1, 1);
 
     grille.afficheGrille();
-    grille.dessineBateau(0, 0);
+    grille.dessineBateau(3, 9);
 
     glFlush();
     glutSwapBuffers();

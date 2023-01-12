@@ -154,8 +154,8 @@ void Grille::dessineBateau(int posX, int posY) {
     // 4 sommets du carré
     for (int j = 0; j < 4; j++)
     {
-        glVertex2f((coordForme[j + 1][0] + posX) * intervalW,
-                   (coordForme[j + 1][1] + posY) * intervalH);
+        glVertex2f((coordForme[j + 1][0] + posX + ajustementX) * intervalW ,
+                   (coordForme[j + 1][1] + posY + ajustementY) * intervalH );
     }
     glEnd();
 

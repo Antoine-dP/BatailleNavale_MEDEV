@@ -35,3 +35,6 @@ extern int intervalW;
 extern float coordCarre[4][2];
 
 extern float coordForme[5][2];
+
+extern float ajustementX;
+extern float ajustementY;
