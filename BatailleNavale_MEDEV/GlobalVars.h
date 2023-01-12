@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <vector>
 
-#include "Partie.h"
 
 
 // Fichiers d'en-têtes pour OpenGL et GLUT
