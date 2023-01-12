@@ -1,11 +1,13 @@
 // BatailleNavale_MEDEV.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
-#include "Grille.h"
+#include "Joueur.h"
+#include "IA.h"
 #include "GlobalVars.h"
 
 using namespace std;
 
+Joueur j1 = Joueur(10, 10);
 
 // Déclarations des fonctions de rappel (callbacks)
 GLvoid affichage();
@@ -14,8 +16,6 @@ GLvoid redimensionner(int w, int h);
 
 void dessineRectangle(double largeur, double hauteur);
 void dessinerGrille(unsigned int echelle = 1);
-
-Grille grille;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -120,8 +120,8 @@ GLvoid affichage() {
 
     //dessineRectangle(1, 1);
 
-    grille.afficheGrille();
-    grille.dessineBateau(3, 9);
+    j1.getGrille().afficheGrille();
+    j1.getGrille().afficheCase();
 
     glFlush();
     glutSwapBuffers();
@@ -131,6 +131,10 @@ GLvoid affichage() {
 ///////////////////////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[])
 {
+  
+    j1.placerBateaux();
+
+
     // Initialisation de GLUT
     glutInit(&argc, argv);
     // Choix du mode d'affichage (ici RVB)

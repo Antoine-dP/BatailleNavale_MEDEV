@@ -13,6 +13,8 @@ public:
 	void placerBateaux();
 	bool tirer(Grille grilleIA);
 
+	Grille getGrille() { return grilleJ; }
+
 };
 
 
