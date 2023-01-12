@@ -2,47 +2,13 @@
 //
 
 
-#include "Windows.h"
-#include <iostream>
-#include <stdio.h>
-#include <vector>
+
 
 #include "Partie.h"
-
-
-// Fichiers d'en-têtes pour OpenGL et GLUT
-#ifdef __APPLE__
-#include <OpenGL/gl.h>
-#include <GLUT/glut.h>
-#else
-//#define GLFW_INCLUDE_NONE
-#include <GL/gl.h>
-#include <GL/glut.h>
-#include <GL/glext.h>
-
-
-#define GL_GLEXT_PROTOTYPES
-
-#endif
-
-#include "Partie.h"
+#include "GlobalVars.h"
 
 using namespace std;
 
-float coordCarre[4][2]{
-    { 0.0, 0.0},
-    { 1.0, 0.0},
-    { 1.0, 1.0},
-    { 0.0, 1.0}
-};
-
-
-// Rotations autour de X et Y
-GLboolean boutonClick = false;
-
-// Taille de la fenêtre
-int windowW = 640*2;
-int windowH = 480*2;
 
 // Déclarations des fonctions de rappel (callbacks)
 GLvoid affichage();
