@@ -54,7 +54,7 @@ void Joueur::placerBateaux() {
 		cin >> posX;
 		cout << endl << "Position en y : ";
 		cin >> posY;
-		possible = grilleJ.placerBateau(4, orientation, posX, posY);
+		possible = grilleJ.placerBateau(3, orientation, posX, posY);
 	}
 
 	possible = false;
@@ -68,7 +68,7 @@ void Joueur::placerBateaux() {
 		cin >> posX;
 		cout << endl << "Position en y : ";
 		cin >> posY;
-		possible = grilleJ.placerBateau(4, orientation, posX, posY);
+		possible = grilleJ.placerBateau(3, orientation, posX, posY);
 	}
 
 	possible = false;
@@ -82,6 +82,6 @@ void Joueur::placerBateaux() {
 		cin >> posX;
 		cout << endl << "Position en y : ";
 		cin >> posY;
-		possible = grilleJ.placerBateau(4, orientation, posX, posY);
+		possible = grilleJ.placerBateau(2, orientation, posX, posY);
 	}
 }
