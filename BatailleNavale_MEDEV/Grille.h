@@ -7,7 +7,7 @@
 // Définition de la classe Grille qui représente la grille de jeu
 class Grille
 {
-private:
+protected:
     // Attributs privés de la classe Grille
     int longueur;
     int largeur;
@@ -35,4 +35,6 @@ public:
     void afficheGrille();
     void dessineLigne(double largeur, double hauteur, int x, int y);
     void afficheCase();
+    void dessineBateau(int i, int j);
+    void dessineCroix(int i, int j);
 };

@@ -15,6 +15,8 @@ GLvoid redimensionner(int w, int h);
 void dessineRectangle(double largeur, double hauteur);
 void dessinerGrille(unsigned int echelle = 1);
 
+Grille grille;
+
 
 ///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -114,7 +116,9 @@ GLvoid affichage() {
 
     glMatrixMode(GL_MODELVIEW);
 
-    dessineRectangle(1, 1);
+    //dessineRectangle(1, 1);
+
+    grille.afficheGrille();
 
     glFlush();
     glutSwapBuffers();

@@ -101,10 +101,7 @@ bool Grille::tirer(int x, int y)
 void Grille::afficheAll() {
 	afficheGrille();
 	// Affiche les objets dans la grille
-	for (int i = 0; i < caseVect.size(); i++)
-	{
-		(*caseVect[i]).affiche();
-	}
+    afficheCase();
 }
 
 // Dessine un carré
@@ -139,5 +136,52 @@ void  Grille::afficheGrille()
     for (int i = 0; i < 11; i++)
     {
         dessineLigne(10 * intervalW + lineWidth, lineWidth, 0, i * intervalH);
+    }
+}
+
+//
+// Afficher ce qu'il y a dans une case :
+// Rien = rien (logik)
+// Carré = Bateau
+// Croix grise = Tir loupé
+// Croix rouge = Tir sur un bateau
+
+void Grille::dessineBateau(int i, int j) {
+    glBegin(GL_QUADS);
+
+    glColor3f(1.0f, 1.0f, 1.0f);
+
+    // 4 sommets du carré
+    for (int j = 0; j < 4; j++)
+    {
+        glVertex2f((coordForme[j + 1][0] + i) * largeur / 10,
+                   (coordForme[j + 1][1] + j) * longueur / 10);
+    }
+    glEnd();
+
+}
+
+void Grille::dessineCroix(int i, int j) {
+
+}
+
+void Grille::afficheCase() 
+{
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            // Juste un bateau
+            if (cases[i][j] == 1) {
+                dessineBateau(i, j);
+            }
+            //// Juste un tir loupé
+            //else if (cases[i][j] == 3) {
+            //    dessineCroix(i, j);
+            //}
+            //// Un tir réussi
+            //else if (cases[i][j] == 2) {
+            //    dessineBateau(i, j);
+            //    dessineCroix(i, j);
+            //}
+        }
     }
 }

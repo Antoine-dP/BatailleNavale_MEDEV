@@ -13,3 +13,11 @@ float coordCarre[4][2]{
     { 1.0, 1.0},
     { 0.0, 1.0}
 };
+
+float coordForme[5][2]{
+    { 0.5f, 0.5f}, // centre du carré
+    { 0.1f, 0.1f}, // bas à gauche du carré
+    { 0.9f, 0.1f},
+    { 0.9f, 0.9f},
+    { 0.1f, 0.9f}
+};
