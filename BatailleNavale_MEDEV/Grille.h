@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include "GlobalVars.h"
 
 // Définition de la classe Grille qui représente la grille de jeu
 class Grille
@@ -33,5 +34,5 @@ public:
     void afficheAll();
     void afficheGrille();
     void dessineLigne(double largeur, double hauteur, int x, int y);
-
+    void afficheCase();
 };
