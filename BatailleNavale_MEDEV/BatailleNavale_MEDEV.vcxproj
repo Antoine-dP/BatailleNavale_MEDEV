@@ -144,30 +144,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AI.cpp" />
     <ClCompile Include="GlobalVars.cpp" />
+    <ClCompile Include="Joueur.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Grille.cpp" />
-    <ClCompile Include="Partie.cpp" />
-    <ClCompile Include="PorteAvion.cpp" />
-    <ClCompile Include="Croiseur.cpp" />
-    <ClCompile Include="ContreTorpilleur.cpp" />
-    <ClCompile Include="SousMarin.cpp" />
-    <ClCompile Include="Torpilleur.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AI.h" />
-    <ClInclude Include="Bateau.h" />
-    <ClInclude Include="Case.h" />
     <ClInclude Include="GlobalVars.h" />
     <ClInclude Include="Grille.h" />
-    <ClInclude Include="Croiseur.h" />
-    <ClInclude Include="ContreTorpilleur.h" />
     <ClInclude Include="Joueur.h" />
-    <ClInclude Include="Torpilleur.h" />
-    <ClInclude Include="SousMarin.h" />
-    <ClInclude Include="PorteAvion.h" />
-    <ClInclude Include="Partie.h" />
     <ClInclude Include="Position.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
