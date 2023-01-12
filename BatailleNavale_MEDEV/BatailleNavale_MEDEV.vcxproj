@@ -145,6 +145,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GlobalVars.cpp" />
+    <ClCompile Include="IA.cpp" />
     <ClCompile Include="Joueur.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Grille.cpp" />
@@ -152,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="GlobalVars.h" />
     <ClInclude Include="Grille.h" />
+    <ClInclude Include="IA.h" />
     <ClInclude Include="Joueur.h" />
     <ClInclude Include="Position.h" />
   </ItemGroup>
