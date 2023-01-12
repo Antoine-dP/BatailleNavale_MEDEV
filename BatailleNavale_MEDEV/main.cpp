@@ -143,7 +143,7 @@ int main(int argc, char* argv[])
     glutCreateWindow("Bataille Navale");
 
     // Définition de la couleur d'effacement du framebuffer
-    glClearColor(0.10f, 0.10f, 0.10f, 0.0f);
+    glClearColor(0.10f, 0.10f, 0.40f, 0.0f);
 
     // Initialement on active le Z-buffer
     glEnable(GL_DEPTH_TEST);
