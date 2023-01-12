@@ -3,7 +3,7 @@
 
 Partie::Partie(int aiDifficulty) {
 	joueur1 = Joueur();
-	joueur2 = Joueur();
+	joueur2 = AI(1);
 	grille1 = Grille(joueur1);
 	grille2 = Grille(joueur2);
 }
@@ -38,7 +38,31 @@ void Partie::SetupGrilleJoueur() {
 }
 
 bool Partie::JouerTour(bool jj) {
-	return false;
+	bool etat = true;
+	if (jj) {
+		while (etat && grille1.getNonfinie()) {
+			Position tir;
+			cout << "Choix tir en x :" << endl;
+			cin >> tir.x;
+			cout << "Choix tir en y :" << endl;
+			cin >> tir.y;
+			while (grille1.jouable(tir)) {
+				cout << "impossible de jouer sur cette case" << endl;
+				cout << "Choix tir en x :" << endl;
+				cin >> tir.x;
+				cout << "Choix tir en y :" << endl;
+				cin >> tir.y;
+			}
+			etat = grille1.jouerGrille(tir);
+		}
+		return grille1.getNonfinie();
+	}
+	else {
+		while (etat && grille2.getNonfinie()) {
+			etat = grille2.jouerGrille(joueur2.jouer());
+		} 
+		return grille2.getNonfinie();
+	}
 }
 
 int Partie::Set_aiDifficulty() {

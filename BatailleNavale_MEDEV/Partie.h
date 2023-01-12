@@ -13,7 +13,7 @@ protected:
 	Grille grille1;
 	Grille grille2;
 	Joueur joueur1;
-	Joueur joueur2;
+	AI joueur2;
 public:
 	Partie(int aiDifficulty) ;
 	void SetupGrilleIA();

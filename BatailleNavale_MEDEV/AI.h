@@ -10,6 +10,7 @@ private:
 	int difficulte;
 	vector<Position> dispo;
 public:
+	AI() { difficulte = 0; };
 	AI(int n) { difficulte = n; };
 	Position jouer();
 };
