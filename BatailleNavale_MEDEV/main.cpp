@@ -71,6 +71,8 @@ GLvoid redimensionner(int w, int h) {
     // Resetting matrix
     glLoadIdentity();
 
+    glViewport(0, 0, windowW, windowH);
+
     // Ortho2D
     gluOrtho2D(0, windowW, 0, windowH);
 
@@ -119,6 +121,7 @@ GLvoid affichage() {
     //dessineRectangle(1, 1);
 
     grille.afficheGrille();
+    grille.dessineBateau(0, 0);
 
     glFlush();
     glutSwapBuffers();

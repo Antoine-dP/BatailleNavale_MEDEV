@@ -146,16 +146,16 @@ void  Grille::afficheGrille()
 // Croix grise = Tir loupé
 // Croix rouge = Tir sur un bateau
 
-void Grille::dessineBateau(int i, int j) {
+void Grille::dessineBateau(int posX, int posY) {
     glBegin(GL_QUADS);
 
-    glColor3f(1.0f, 1.0f, 1.0f);
+    glColor3f(0.7f, 0.7f, 1.0f);
 
     // 4 sommets du carré
     for (int j = 0; j < 4; j++)
     {
-        glVertex2f((coordForme[j + 1][0] + i) * largeur / 10,
-                   (coordForme[j + 1][1] + j) * longueur / 10);
+        glVertex2f((coordForme[j + 1][0] + posX) * intervalW,
+                   (coordForme[j + 1][1] + posY) * intervalH);
     }
     glEnd();
 
