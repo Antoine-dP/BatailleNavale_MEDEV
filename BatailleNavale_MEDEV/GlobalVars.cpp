@@ -23,6 +23,20 @@ float coordForme[5][2]{
     { 0.1f, 0.9f}
 };
 
+float coordCroixCasse[4][2]{
+    { 0.18f, 0.22f},
+    { 0.22f, 0.18f},
+    { 0.82f, 0.78f},
+    { 0.78f, 0.82f}
+};
+
+float coordCroixContreCasse[4][2]{
+    { 0.22f, 0.82f},
+    { 0.82f, 0.22f},
+    { 0.78f, 0.18f},
+    { 0.18f, 0.78f}
+};
+
 // Variables pour ajuster l'affichage au centre des cases
 float ajustementX = 0.045;
 float ajustementY = 0.045;

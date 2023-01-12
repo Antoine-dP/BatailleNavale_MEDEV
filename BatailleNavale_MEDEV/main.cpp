@@ -7,7 +7,6 @@
 
 using namespace std;
 
-Joueur j1 = Joueur(10, 10);
 
 // Déclarations des fonctions de rappel (callbacks)
 GLvoid affichage();
@@ -16,6 +15,8 @@ GLvoid redimensionner(int w, int h);
 
 void dessineRectangle(double largeur, double hauteur);
 void dessinerGrille(unsigned int echelle = 1);
+
+Grille grille;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -119,9 +120,8 @@ GLvoid affichage() {
     glMatrixMode(GL_MODELVIEW);
 
     //dessineRectangle(1, 1);
-
-    j1.getGrille().afficheGrille();
-    j1.getGrille().afficheCase();
+    grille.afficheGrille();
+    grille.dessineCroix(3, 6);
 
     glFlush();
     glutSwapBuffers();
@@ -132,9 +132,6 @@ GLvoid affichage() {
 int main(int argc, char* argv[])
 {
   
-    j1.placerBateaux();
-
-
     // Initialisation de GLUT
     glutInit(&argc, argv);
     // Choix du mode d'affichage (ici RVB)

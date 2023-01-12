@@ -161,8 +161,24 @@ void Grille::dessineBateau(int posX, int posY) {
 
 }
 
-void Grille::dessineCroix(int i, int j) {
+void Grille::dessineCroix(int posX, int posY) {
+    glBegin(GL_QUADS);
 
+    glColor3f(0.7f, 0.7f, 1.0f);
+
+    // 4 sommets du carré
+    for (int j = 0; j < 4; j++)
+    {
+        glVertex2f((coordCroixCasse[j][0] + posX + ajustementX) * intervalW,
+            (coordCroixCasse[j][1] + posY + ajustementY) * intervalH);
+    }
+
+    for (int j = 0; j < 4; j++)
+    {
+        glVertex2f((coordCroixContreCasse[j][0] + posX + ajustementX) * intervalW,
+            (coordCroixContreCasse[j][1] + posY + ajustementY) * intervalH);
+    }
+    glEnd();
 }
 
 void Grille::afficheCase() 
