@@ -3,6 +3,7 @@
 #include "Case.h"
 #include "Grille.h"
 #include "Position.h"
+#include "AI.h"
 #include "Joueur.h"
 #include "GlobalVars.h"
 
@@ -17,6 +18,7 @@ public:
 	Partie(int aiDifficulty) ;
 	void SetupGrilleIA();
 	void SetupGrilleJoueur();
-	void JouerTour();
+	bool JouerTour(bool);
 	void LancerPartie();
+	int Set_aiDifficulty();
 };

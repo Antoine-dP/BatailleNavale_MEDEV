@@ -37,13 +37,51 @@ void Partie::SetupGrilleJoueur() {
 	;
 }
 
-void Partie::JouerTour() {
-	;
+bool Partie::JouerTour(bool jj) {
+	return false;
+}
+
+int Partie::Set_aiDifficulty() {
+	int n = 2;
+	while (n != 0 && n != 1) {
+		cout << "Choix IA : 0 pour facile, 1 pour difficile" << endl;
+		cin >> n;
+	}
+	return n;
 }
 
 void Partie::LancerPartie() {
-	;
+	//Choix de la difficulte
+	int diff = Set_aiDifficulty();
+
+	//Setup des joueurs et grilles
+	joueur1 = Joueur();
+	grille1 = Grille(joueur1);
+
+	joueur2 = AI(diff);
+	grille2 = Grille(joueur2);
+
+	//Remplissage des grilles
+	SetupGrilleIA();
+	SetupGrilleJoueur();
+
+	//condition de victoire
+	bool nonFin = true;
+
+	//Joueur jouant
+	bool jj = 0;
+
+	//partie
+	while (nonFin) {
+		nonFin = JouerTour(jj);
+		jj = !jj;
+	}
+	
+	if (jj) {
+		cout << "défaite)";
+	} else{ cout << "victoire"; }
 }
+
 
 
 
