@@ -30,16 +30,27 @@ GLvoid clavier(unsigned char touche, int x, int y) {
     // ESCAPE ou 'q' : fermera l'application
 
     switch (touche) {
-    case 'd':
+    /*case 'd':
         glEnable(GL_DEPTH_TEST);
         glutPostRedisplay();
         break;
     case 'D':
         glDisable(GL_DEPTH_TEST);
         glutPostRedisplay();
-        break;
+        break;*/
 
-    case 'q': // quitter
+    case 's':
+        cout << "down\n";
+        break;
+    case 'z':
+        cout << "up\n";
+        break;
+    case 'q':
+        cout << "left\n";
+        break;
+    case 'd':
+        cout << "right\n";
+        break;
     case 27:
         exit(0);
         break;
