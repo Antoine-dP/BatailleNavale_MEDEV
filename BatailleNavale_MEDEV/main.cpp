@@ -41,15 +41,19 @@ GLvoid clavier(unsigned char touche, int x, int y) {
 
     case 's':
         cout << "down\n";
+        placementY = placementY - 1;
         break;
     case 'z':
         cout << "up\n";
+        placementY++;
         break;
     case 'q':
         cout << "left\n";
+        placementX = placementX - 1;
         break;
     case 'd':
         cout << "right\n";
+        placementX++;
         break;
     case 27:
         exit(0);
@@ -131,6 +135,7 @@ GLvoid affichage() {
     glMatrixMode(GL_MODELVIEW);
 
     grille.afficheAll();
+    grille.dessineBateau(placementX, placementY);
 
     glFlush();
     glutSwapBuffers();

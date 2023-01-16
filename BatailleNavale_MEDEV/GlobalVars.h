@@ -41,3 +41,8 @@ extern float coordCroixContreCasse[4][2];
 
 extern float ajustementX;
 extern float ajustementY;
+
+//
+// TEST
+extern int placementX;
+extern int placementY;

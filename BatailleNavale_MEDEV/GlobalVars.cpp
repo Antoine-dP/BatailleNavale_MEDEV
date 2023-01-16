@@ -40,3 +40,8 @@ float coordCroixContreCasse[4][2]{
 // Variables pour ajuster l'affichage au centre des cases
 float ajustementX = 0.045;
 float ajustementY = 0.045;
+
+//
+// TEST
+int placementX = 0;
+int placementY = 0;
