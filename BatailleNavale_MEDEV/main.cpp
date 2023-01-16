@@ -58,10 +58,13 @@ GLvoid clavier(unsigned char touche, int x, int y) {
     case 27:
         exit(0);
         break;
-
-
-        // A vous de gerer le reste
     }
+
+    // On gère les possibles dépassements
+    if (placementY > 9) { placementY = 9;}
+    else if (placementY < 0) { placementY = 0;}
+    if (placementX > 9) { placementX = 9;}
+    else if (placementX < 0) { placementX = 0;}
 
     // Demande a GLUT de reafficher la scene
     glutPostRedisplay();
