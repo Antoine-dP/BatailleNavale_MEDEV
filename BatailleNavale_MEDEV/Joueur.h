@@ -8,6 +8,7 @@ private:
 
 
 public:
+	Joueur();
 	Joueur(int longueur, int largeur);
 	~Joueur();
 	void placerBateaux();

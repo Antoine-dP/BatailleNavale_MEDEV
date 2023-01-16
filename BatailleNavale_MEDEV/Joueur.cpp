@@ -2,6 +2,9 @@
 
 using namespace std;
 
+Joueur::Joueur(){}
+
+
 Joueur::Joueur(int longueur, int largeur)
 {
 	grilleJ = Grille(longueur, largeur);

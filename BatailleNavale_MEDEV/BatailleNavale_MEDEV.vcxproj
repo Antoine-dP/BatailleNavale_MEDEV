@@ -149,12 +149,14 @@
     <ClCompile Include="Joueur.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Grille.cpp" />
+    <ClCompile Include="Partie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GlobalVars.h" />
     <ClInclude Include="Grille.h" />
     <ClInclude Include="IA.h" />
     <ClInclude Include="Joueur.h" />
+    <ClInclude Include="Partie.h" />
     <ClInclude Include="Position.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

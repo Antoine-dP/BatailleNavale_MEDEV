@@ -4,6 +4,10 @@
 #include <cstdlib>
 using namespace std;
 
+IA::IA()
+{
+}
+
 IA::IA(int longueur, int largeur)
 {
 	grilleIA = Grille(longueur, largeur);
