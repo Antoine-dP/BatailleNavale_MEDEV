@@ -50,3 +50,5 @@ int taille = 2;
 int numBateau = 1;
 
 bool horizontal = true;
+
+bool partieInitialisee = false;

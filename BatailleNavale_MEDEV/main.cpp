@@ -43,19 +43,23 @@ GLvoid clavier(unsigned char touche, int x, int y) {
     // Validation du placement d'un bateau pendant l'initialisation de la partie
     case 13:
     case 'a':
-        //grille.placerBateau(taille, horizontal, placementX, placementY);
+        if (!partieInitialisee && grille.placerBateau(taille, horizontal, placementX, placementY)) {
+            // On réinitialise la position du prochain bateau à placer
+            placementX = 0;
+            placementY = 10;
 
-        // On réinitialise la position du prochain bateau à placer
-        placementX = 0;
-        placementY = 10;
+            // on donne la bonne taille au prochain bateau
+            numBateau++;
+            if (numBateau < 3) {
+                taille = numBateau + 1;
+            }
+            else {
+                taille = numBateau;
+            }
 
-        // on donne la bonne taille au prochain bateau
-        numBateau++;
-        if (numBateau < 3) {
-            taille = numBateau + 1;
-        }
-        else {
-            taille = numBateau;
+            if (numBateau > 5) {
+                partieInitialisee = true;
+            }
         }
         break;
     case 'r':
@@ -169,7 +173,11 @@ GLvoid affichage() {
     glMatrixMode(GL_MODELVIEW);
 
     grille.afficheAll();
-    grille.dessineBateau(taille, horizontal, placementX, placementY);
+
+    // dessin du bateau pendant l'initialisation de la partie
+    if (!partieInitialisee) {
+        grille.dessineBateau(taille, horizontal, placementX, placementY);
+    }
 
     glFlush();
     glutSwapBuffers();
@@ -211,8 +219,5 @@ int main(int argc, char* argv[])
 
     // Lancement de la boucle infinie GLUT
     glutMainLoop();
-    
-    
-
     return 0;
 }

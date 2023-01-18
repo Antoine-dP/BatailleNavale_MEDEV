@@ -1,11 +1,18 @@
 #include "Grille.h"
 
 // Implémentation du constructeur de la classe Grille
+Grille::Grille()
+{
+    this->longueur = 10;
+    this->largeur = 10;
+    this->cases.resize(largeur, std::vector<int>(longueur, 0));
+}
+
 Grille::Grille(int longueur, int largeur)
 {
     this->longueur = longueur;
     this->largeur = largeur;
-    this->cases = std::vector<std::vector<int>>(longueur, std::vector<int>(largeur, 0));
+    this->cases.resize(largeur, std::vector<int>(longueur, 0));
 }
 
 // Implémentation de la méthode afficher de la classe Grille
@@ -27,7 +34,7 @@ bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
     if (horizontal)
     {
         // Vérification que le bateau ne dépasse pas de la grille sur l'axe des abscisses
-        if (x + longueurBateau > this->longueur)
+        if (x + longueurBateau > 9)
         {
             std::cout << "Impossible de placer le bateau : il dépasse de la grille sur l'axe des abscisses." << std::endl;
             return false;
@@ -46,6 +53,8 @@ bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
         // Placement du bateau sur la grille
         for (int i = x; i < x + longueurBateau; i++)
         {
+            cout << cases.size() << endl;
+            cout << cases[0].size() << endl;
             this->cases[i][y] = 1;
         }
         return true;
@@ -53,14 +62,14 @@ bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
     else
     {
         // Vérification que le bateau ne dépasse pas de la grille sur l'axe des ordonnées
-        if (y + longueurBateau > this->largeur)
+        if (y - (longueurBateau-1) < 0 )
         {
             std::cout << "Impossible de placer le bateau : il dépasse de la grille sur l'axe des ordonnées." << std::endl;
             return false;
         }
 
         // Vérification que les cases où le bateau doit être placé ne sont pas déjà occupées par un autre bateau
-        for (int j = y; j < y + longueurBateau; j++)
+        for (int j = y; j > y - longueurBateau; j--)
         {
             if (this->cases[x][j] != 0)
             {
@@ -70,7 +79,7 @@ bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
         }
 
         // Placement du bateau sur la grille
-        for (int j = y; j < y + longueurBateau; j++)
+        for (int j = y; j > y - longueurBateau; j--)
         {
             this->cases[x][j] = 1;
         }
@@ -146,10 +155,15 @@ void  Grille::afficheGrille()
 // Croix grise = Tir loupé
 // Croix rouge = Tir sur un bateau
 
-void Grille::dessineUnCarre(int posX, int posY) {
+void Grille::dessineUnCarre(int posX, int posY, bool couleurClaire) {
     glBegin(GL_QUADS);
 
-    glColor3f(0.7f, 0.7f, 1.0f);
+    if (couleurClaire) {
+        glColor3f(0.9f, 0.9f, 1.0f);
+    }
+    else {
+        glColor3f(0.7f, 0.7f, 0.9f);
+    }
 
     // 4 sommets du carré
     for (int j = 0; j < 4; j++)
@@ -164,12 +178,12 @@ void Grille::dessineUnCarre(int posX, int posY) {
 void Grille::dessineBateau(int taille, bool horizontal, int posX, int posY) {
     if (horizontal) {
         for (int i = 0; i < taille; i++) {
-            dessineUnCarre(posX + i, posY);
+            dessineUnCarre(posX + i, posY, true);
         }
     }
     else {
         for (int i = 0; i < taille; i++) {
-            dessineUnCarre(posX, posY - i);
+            dessineUnCarre(posX, posY - i, true);
         }
     }
 }
@@ -208,7 +222,7 @@ void Grille::afficheCase()
             for (int j = 0; j < 10; j++) {
                 // Juste un bateau
                 if (cases[i][j] == 1) {
-                    dessineUnCarre(i, j);
+                    dessineUnCarre(i, j, false);
                 }
                 // Juste un tir loupé
                 else if (cases[i][j] == 3) {
@@ -217,7 +231,7 @@ void Grille::afficheCase()
                 // Un tir réussi
                 else if (cases[i][j] == 2) {
                     dessineCroix(i, j, true);
-                    dessineUnCarre(i, j);
+                    dessineUnCarre(i, j, false);
                 }
             }
         }

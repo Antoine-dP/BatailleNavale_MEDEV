@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "GlobalVars.h"
+using namespace std;
 
 // Définition de la classe Grille qui représente la grille de jeu
 class Grille
@@ -16,7 +17,7 @@ protected:
 
 public:
     // Constructeur de la classe Grille
-    Grille() {};
+    Grille();
     Grille(int longueur, int largeur);
 
 
@@ -35,7 +36,7 @@ public:
     void afficheGrille();
     void dessineLigne(double largeur, double hauteur, int x, int y);
     void afficheCase();
-    void dessineUnCarre(int i, int j);
+    void dessineUnCarre(int i, int j, bool couleurClaire);
     void dessineBateau(int taille, bool orientation, int posX, int posY);
     void dessineCroix(int i, int j, bool touche);
 };
