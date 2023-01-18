@@ -47,4 +47,6 @@ extern float ajustementY;
 extern int placementX;
 extern int placementY;
 
+extern int taille;
+
 extern bool horizontal;

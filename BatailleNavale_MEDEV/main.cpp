@@ -67,11 +67,19 @@ GLvoid clavier(unsigned char touche, int x, int y) {
     }
 
     // On gère les possibles dépassements
+    if (horizontal) {
+        if (placementY > 9) { placementY = 9; }
+        else if (placementY < 0) { placementY = 0; }
+        if (placementX + taille > 9) { placementX = 9 - (taille - 1); }
+        else if (placementX < 0) { placementX = 0; }
+    }
+    else {
+        if (placementY + taille > 9) { placementY = 9 - (taille - 1); }
+        else if (placementY < 0) { placementY = 0; }
+        if (placementX> 9) { placementX = 9; }
+        else if (placementX < 0) { placementX = 0; }
+    }
     
-    if (placementY > 9) { placementY = 9;}
-    else if (placementY < 0) { placementY = 0;}
-    if (placementX > 9) { placementX = 9;}
-    else if (placementX < 0) { placementX = 0;}
 
     // Demande a GLUT de reafficher la scene
     glutPostRedisplay();
@@ -145,7 +153,7 @@ GLvoid affichage() {
     glMatrixMode(GL_MODELVIEW);
 
     grille.afficheAll();
-    grille.dessineBateau(3, horizontal, placementX, placementY);
+    grille.dessineBateau(taille, horizontal, placementX, placementY);
 
     glFlush();
     glutSwapBuffers();

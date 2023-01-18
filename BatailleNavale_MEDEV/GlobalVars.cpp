@@ -42,8 +42,10 @@ float ajustementX = 0.045;
 float ajustementY = 0.045;
 
 //
-// TEST
+// Placement des bateaux en début de jeu
 int placementX = 0;
 int placementY = 9;
+
+int taille = 2;
 
 bool horizontal = true;
