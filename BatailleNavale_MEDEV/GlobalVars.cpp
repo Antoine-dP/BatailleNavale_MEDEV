@@ -44,4 +44,6 @@ float ajustementY = 0.045;
 //
 // TEST
 int placementX = 0;
-int placementY = 0;
+int placementY = 9;
+
+bool horizontal = true;

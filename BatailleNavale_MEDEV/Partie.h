@@ -17,6 +17,7 @@ public:
 
 	//void debutPartie();
 	//void jouerTour();
+	void initialisationPartie();
 	bool partieFinie();
 
 };

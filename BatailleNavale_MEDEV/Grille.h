@@ -22,7 +22,7 @@ public:
 
     // Méthodes publiques de la classe Grille
     void afficher(); // Afficher dans la commande
-    bool placerBateau(int longueurBateau, char orientation, int x, int y);
+    bool placerBateau(int longueurBateau, bool horizontal, int x, int y);
     bool tirer(int x, int y);
 
     int getLongueur() { return longueur; }
@@ -35,6 +35,7 @@ public:
     void afficheGrille();
     void dessineLigne(double largeur, double hauteur, int x, int y);
     void afficheCase();
-    void dessineBateau(int i, int j);
+    void dessineUnCarre(int i, int j);
+    void dessineBateau(int taille, bool orientation, int posX, int posY);
     void dessineCroix(int i, int j, bool touche);
 };

@@ -22,9 +22,9 @@ void Grille::afficher()
 }
 
 // Implémentation de la méthode placerBateau de la classe Grille
-bool Grille::placerBateau(int longueurBateau, char orientation, int x, int y)
+bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
 {
-    if (orientation == 'v')
+    if (horizontal)
     {
         // Vérification que le bateau ne dépasse pas de la grille sur l'axe des abscisses
         if (x + longueurBateau > this->longueur)
@@ -50,7 +50,7 @@ bool Grille::placerBateau(int longueurBateau, char orientation, int x, int y)
         }
         return true;
     }
-    else if (orientation == 'h')
+    else
     {
         // Vérification que le bateau ne dépasse pas de la grille sur l'axe des ordonnées
         if (y + longueurBateau > this->largeur)
@@ -146,7 +146,7 @@ void  Grille::afficheGrille()
 // Croix grise = Tir loupé
 // Croix rouge = Tir sur un bateau
 
-void Grille::dessineBateau(int posX, int posY) {
+void Grille::dessineUnCarre(int posX, int posY) {
     glBegin(GL_QUADS);
 
     glColor3f(0.7f, 0.7f, 1.0f);
@@ -159,6 +159,19 @@ void Grille::dessineBateau(int posX, int posY) {
     }
     glEnd();
 
+}
+
+void Grille::dessineBateau(int taille, bool horizontal, int posX, int posY) {
+    if (horizontal) {
+        for (int i = 0; i < taille; i++) {
+            dessineUnCarre(posX + i, posY);
+        }
+    }
+    else {
+        for (int i = 0; i < taille; i++) {
+            dessineUnCarre(posX, posY - i);
+        }
+    }
 }
 
 void Grille::dessineCroix(int posX, int posY, bool touche) {
@@ -195,7 +208,7 @@ void Grille::afficheCase()
             for (int j = 0; j < 10; j++) {
                 // Juste un bateau
                 if (cases[i][j] == 1) {
-                    dessineBateau(i, j);
+                    dessineUnCarre(i, j);
                 }
                 // Juste un tir loupé
                 else if (cases[i][j] == 3) {
@@ -204,7 +217,7 @@ void Grille::afficheCase()
                 // Un tir réussi
                 else if (cases[i][j] == 2) {
                     dessineCroix(i, j, true);
-                    dessineBateau(i, j);
+                    dessineUnCarre(i, j);
                 }
             }
         }

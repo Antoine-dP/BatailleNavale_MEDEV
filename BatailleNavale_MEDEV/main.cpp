@@ -4,6 +4,7 @@
 #include "Joueur.h"
 #include "IA.h"
 #include "GlobalVars.h"
+#include "Partie.h"
 
 using namespace std;
 
@@ -38,7 +39,12 @@ GLvoid clavier(unsigned char touche, int x, int y) {
         glDisable(GL_DEPTH_TEST);
         glutPostRedisplay();
         break;*/
-
+    case 'a':
+        grille.placerBateau(1, horizontal, placementX, placementY);
+        break;
+    case 'r':
+        horizontal = !horizontal;
+        break;
     case 's':
         cout << "down\n";
         placementY = placementY - 1;
@@ -54,13 +60,14 @@ GLvoid clavier(unsigned char touche, int x, int y) {
     case 'd':
         cout << "right\n";
         placementX++;
-        break;
+        break;    
     case 27:
         exit(0);
         break;
     }
 
     // On gère les possibles dépassements
+    
     if (placementY > 9) { placementY = 9;}
     else if (placementY < 0) { placementY = 0;}
     if (placementX > 9) { placementX = 9;}
@@ -138,17 +145,19 @@ GLvoid affichage() {
     glMatrixMode(GL_MODELVIEW);
 
     grille.afficheAll();
-    grille.dessineBateau(placementX, placementY);
+    grille.dessineBateau(3, horizontal, placementX, placementY);
 
     glFlush();
     glutSwapBuffers();
 }
 
+
+
 ///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[])
 {
-  
+    Partie partie;
     // Initialisation de GLUT
     glutInit(&argc, argv);
     // Choix du mode d'affichage (ici RVB)
@@ -174,8 +183,12 @@ int main(int argc, char* argv[])
     glutKeyboardFunc(clavier);
     glutReshapeFunc(redimensionner);
 
+    partie.initialisationPartie();
+
     // Lancement de la boucle infinie GLUT
     glutMainLoop();
+    
+    
 
     return 0;
 }

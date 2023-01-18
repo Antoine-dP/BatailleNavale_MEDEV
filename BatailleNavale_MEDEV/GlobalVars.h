@@ -46,3 +46,5 @@ extern float ajustementY;
 // TEST
 extern int placementX;
 extern int placementY;
+
+extern bool horizontal;
