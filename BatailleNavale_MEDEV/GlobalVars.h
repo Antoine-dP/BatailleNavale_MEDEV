@@ -48,5 +48,6 @@ extern int placementX;
 extern int placementY;
 
 extern int taille;
+extern int numBateau;
 
 extern bool horizontal;

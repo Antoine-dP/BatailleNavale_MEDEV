@@ -47,5 +47,6 @@ int placementX = 0;
 int placementY = 9;
 
 int taille = 2;
+int numBateau = 1;
 
 bool horizontal = true;

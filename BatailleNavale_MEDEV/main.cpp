@@ -29,7 +29,7 @@ GLvoid clavier(unsigned char touche, int x, int y) {
     // Suivant les touches pressees, nous aurons un comportement different de l'application
     // ESCAPE ou 'q' : fermera l'application
     // ESCAPE ou 'q' : fermera l'application
-
+    
     switch (touche) {
     /*case 'd':
         glEnable(GL_DEPTH_TEST);
@@ -39,8 +39,24 @@ GLvoid clavier(unsigned char touche, int x, int y) {
         glDisable(GL_DEPTH_TEST);
         glutPostRedisplay();
         break;*/
+
+    // Validation du placement d'un bateau pendant l'initialisation de la partie
+    case 13:
     case 'a':
-        grille.placerBateau(1, horizontal, placementX, placementY);
+        //grille.placerBateau(taille, horizontal, placementX, placementY);
+
+        // On réinitialise la position du prochain bateau à placer
+        placementX = 0;
+        placementY = 10;
+
+        // on donne la bonne taille au prochain bateau
+        numBateau++;
+        if (numBateau < 3) {
+            taille = numBateau + 1;
+        }
+        else {
+            taille = numBateau;
+        }
         break;
     case 'r':
         horizontal = !horizontal;
@@ -74,8 +90,8 @@ GLvoid clavier(unsigned char touche, int x, int y) {
         else if (placementX < 0) { placementX = 0; }
     }
     else {
-        if (placementY + taille > 9) { placementY = 9 - (taille - 1); }
-        else if (placementY < 0) { placementY = 0; }
+        if (placementY > 9) { placementY = 9 ; }
+        else if (placementY - taille < 0) { placementY = 0 + (taille-1); }
         if (placementX> 9) { placementX = 9; }
         else if (placementX < 0) { placementX = 0; }
     }
