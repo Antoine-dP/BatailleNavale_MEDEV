@@ -18,7 +18,7 @@ void dessineRectangle(double largeur, double hauteur);
 void dessinerGrille(unsigned int echelle = 1);
 
 Partie partie;
-Grille grille;
+Grille grilleJoueur;
 Grille grilleAI;
 
 
@@ -38,7 +38,7 @@ GLvoid clavier(unsigned char touche, int x, int y) {
         // Validation du placement d'un bateau pendant l'initialisation de la partie
         case 13:
         case 'a':
-            if (grille.placerBateau(taille, horizontal, placementX, placementY)) {
+            if (grilleJoueur.placerBateau(taille, horizontal, placementX, placementY)) {
                 // On réinitialise la position du prochain bateau à placer
                 placementX = 0;
                 placementY = 10;
@@ -64,6 +64,12 @@ GLvoid clavier(unsigned char touche, int x, int y) {
 #pragma endregion
         }
         else {
+            #pragma region ChangerGrilleAffichee
+        case 'm':
+            afficheJoueur = !afficheJoueur;
+            break;
+#pragma endregion
+
             #pragma region Tirer
 #pragma endregion
         }
@@ -181,7 +187,12 @@ GLvoid affichage() {
 
     glMatrixMode(GL_MODELVIEW);
 
-    grilleAI.afficheAll();
+    if (afficheJoueur) {
+        grilleJoueur.afficheAll();
+    }
+    else {
+        grilleAI.afficheAll();
+    }
 
     // dessin du bateau pendant l'initialisation de la partie
     if (!partieInitialisee) {
@@ -200,9 +211,8 @@ int main(int argc, char* argv[])
 {
     // Creation de la partie
     srand(time(0));
-    
-
     grilleAI.initialisationGrilleAI();
+
     // Initialisation de GLUT
     glutInit(&argc, argv);
     // Choix du mode d'affichage (ici RVB)

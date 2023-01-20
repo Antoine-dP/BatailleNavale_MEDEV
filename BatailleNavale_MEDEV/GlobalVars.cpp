@@ -53,3 +53,6 @@ int numBateau = 1;
 
 bool horizontal = true;
 bool partieInitialisee = false;
+
+// Deroulement de la partie
+bool afficheJoueur = true;

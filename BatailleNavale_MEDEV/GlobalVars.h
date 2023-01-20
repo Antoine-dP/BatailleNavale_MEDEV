@@ -52,3 +52,4 @@ extern int numBateau;
 extern bool horizontal;
 
 extern bool partieInitialisee;
+extern bool afficheJoueur;
