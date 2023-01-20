@@ -25,46 +25,39 @@ Grille grille;
 
 // Definition de la fonction gerant les interruptions clavier
 GLvoid clavier(unsigned char touche, int x, int y) {
-
-    // Suivant les touches pressees, nous aurons un comportement different de l'application
-    // ESCAPE ou 'q' : fermera l'application
-    // ESCAPE ou 'q' : fermera l'application
     
     switch (touche) {
-    /*case 'd':
-        glEnable(GL_DEPTH_TEST);
-        glutPostRedisplay();
-        break;
-    case 'D':
-        glDisable(GL_DEPTH_TEST);
-        glutPostRedisplay();
-        break;*/
 
-    // Validation du placement d'un bateau pendant l'initialisation de la partie
-    case 13:
-    case 'a':
-        if (!partieInitialisee && grille.placerBateau(taille, horizontal, placementX, placementY)) {
-            // On réinitialise la position du prochain bateau à placer
-            placementX = 0;
-            placementY = 10;
+        // Input valides seulement pendant que le joueur
+        // place ses bateaux au début de la partie
+        if (!partieInitialisee) {
+                // Validation du placement d'un bateau pendant l'initialisation de la partie
+        case 13:
+        case 'a':
+            if (grille.placerBateau(taille, horizontal, placementX, placementY)) {
+                // On réinitialise la position du prochain bateau à placer
+                placementX = 0;
+                placementY = 10;
 
-            // on donne la bonne taille au prochain bateau
-            numBateau++;
-            if (numBateau < 3) {
-                taille = numBateau + 1;
-            }
-            else {
-                taille = numBateau;
-            }
+                // on donne la bonne taille au prochain bateau
+                numBateau++;
+                if (numBateau < 3) {
+                    taille = numBateau + 1;
+                }
+                else {
+                    taille = numBateau;
+                }
 
-            if (numBateau > 5) {
-                partieInitialisee = true;
+                if (numBateau > 5) {
+                    partieInitialisee = true;
+                }
             }
+            break;
+        case 'r':
+            horizontal = !horizontal;
+            break;
         }
-        break;
-    case 'r':
-        horizontal = !horizontal;
-        break;
+    
     case 's':
         cout << "down\n";
         placementY = placementY - 1;
