@@ -6,6 +6,7 @@ using namespace std;
 
 IA::IA()
 {
+	grilleIA.setCouleurGrille(1.0, 0.5, 0.0);
 }
 
 IA::IA(int longueur, int largeur)

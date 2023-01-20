@@ -53,8 +53,10 @@ GLvoid clavier(unsigned char touche, int x, int y) {
                 }
 
                 if (numBateau > 5) {
+                    cout << "Vous avez pose tous vos bateaux\n";
                     partieInitialisee = true;
                     taille = 0;
+                    grilleJoueur.setCouleurGrille(0.47, 0.71, 0.99);
                 }
             }
             break;

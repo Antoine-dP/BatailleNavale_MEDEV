@@ -6,6 +6,9 @@ Grille::Grille()
     this->longueur = 10;
     this->largeur = 10;
     this->cases.resize(largeur, std::vector<int>(longueur, 0));
+    for (int i = 0; i < 3; i++) {
+        this->couleur_grille.push_back(0.8f);
+    }
 }
 
 Grille::Grille(int longueur, int largeur)
@@ -13,6 +16,9 @@ Grille::Grille(int longueur, int largeur)
     this->longueur = longueur;
     this->largeur = largeur;
     this->cases.resize(largeur, std::vector<int>(longueur, 0));
+    for (int i = 0; i < 3; i++) {
+        this->couleur_grille.push_back(0.8f);
+    }
 }
 
 // Implémentation de la méthode afficher de la classe Grille
@@ -119,7 +125,7 @@ void Grille::dessineLigne(double largeur, double hauteur, int x, int y)
     // if not pressed, just draw in white
     glBegin(GL_QUADS);
 
-    glColor3f(0.8f, 0.8f, 0.8f);
+    glColor3f(couleur_grille[0], couleur_grille[1], couleur_grille[2]);
 
     for (int j = 0; j < 4; j++)
     {

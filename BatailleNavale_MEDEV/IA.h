@@ -14,6 +14,7 @@ public:
 	//void placerBateaux();
 	bool initialiser();
 	bool tirer(Grille grilleJoueur);
+	void afficheAll();
 
 	Grille getGrille() { return grilleIA; }
 
