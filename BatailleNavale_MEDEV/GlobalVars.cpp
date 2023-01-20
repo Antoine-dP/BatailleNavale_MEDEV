@@ -1,5 +1,6 @@
 #include "GlobalVars.h"
 
+#pragma region Affichage
 int windowW = 480;
 int windowH = 480;
 
@@ -40,15 +41,15 @@ float coordCroixContreCasse[4][2]{
 // Variables pour ajuster l'affichage au centre des cases
 float ajustementX = 0.045;
 float ajustementY = 0.045;
+#pragma endregion
 
-//
-// Placement des bateaux en début de jeu
+// Curseur
 int placementX = 0;
 int placementY = 9;
 
+// Placement des bateaux en début de jeu
 int taille = 2;
 int numBateau = 1;
 
 bool horizontal = true;
-
 bool partieInitialisee = false;

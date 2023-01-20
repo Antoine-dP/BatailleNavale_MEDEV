@@ -17,7 +17,9 @@ GLvoid redimensionner(int w, int h);
 void dessineRectangle(double largeur, double hauteur);
 void dessinerGrille(unsigned int echelle = 1);
 
+Partie partie;
 Grille grille;
+Grille grilleAI;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -28,10 +30,12 @@ GLvoid clavier(unsigned char touche, int x, int y) {
     
     switch (touche) {
 
+        if (!partieInitialisee) {
+            #pragma region PoseDesBateaux
         // Input valides seulement pendant que le joueur
         // place ses bateaux au début de la partie
-        if (!partieInitialisee) {
-                // Validation du placement d'un bateau pendant l'initialisation de la partie
+        
+        // Validation du placement d'un bateau pendant l'initialisation de la partie
         case 13:
         case 'a':
             if (grille.placerBateau(taille, horizontal, placementX, placementY)) {
@@ -50,14 +54,24 @@ GLvoid clavier(unsigned char touche, int x, int y) {
 
                 if (numBateau > 5) {
                     partieInitialisee = true;
+                    taille = 0;
                 }
             }
             break;
         case 'r':
             horizontal = !horizontal;
             break;
+#pragma endregion
         }
-    
+        else {
+            #pragma region Tirer
+#pragma endregion
+        }
+        
+        #pragma region DeplacementCurseur
+    // Deplacement du curseur 'placement' sur la grille
+    // X et Y dans (0,9)x(0,9)
+    // (O,O) en bas à gauche
     case 's':
         cout << "down\n";
         placementY = placementY - 1;
@@ -77,9 +91,11 @@ GLvoid clavier(unsigned char touche, int x, int y) {
     case 27:
         exit(0);
         break;
+#pragma endregion
     }
 
-    // On gère les possibles dépassements
+    #pragma region GestionDepassementCurseur
+    // On gère les possibles dépassements du curseur
     if (horizontal) {
         if (placementY > 9) { placementY = 9; }
         else if (placementY < 0) { placementY = 0; }
@@ -92,7 +108,7 @@ GLvoid clavier(unsigned char touche, int x, int y) {
         if (placementX> 9) { placementX = 9; }
         else if (placementX < 0) { placementX = 0; }
     }
-    
+#pragma endregion
 
     // Demande a GLUT de reafficher la scene
     glutPostRedisplay();
@@ -165,11 +181,11 @@ GLvoid affichage() {
 
     glMatrixMode(GL_MODELVIEW);
 
-    grille.afficheAll();
+    grilleAI.afficheAll();
 
     // dessin du bateau pendant l'initialisation de la partie
     if (!partieInitialisee) {
-        grille.dessineBateau(taille, horizontal, placementX, placementY);
+        grilleAI.dessineBateau(taille, horizontal, placementX, placementY);
     }
 
     glFlush();
@@ -182,7 +198,11 @@ GLvoid affichage() {
 ///////////////////////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[])
 {
-    Partie partie;
+    // Creation de la partie
+    srand(time(0));
+    
+
+    grilleAI.initialisationGrilleAI();
     // Initialisation de GLUT
     glutInit(&argc, argv);
     // Choix du mode d'affichage (ici RVB)
@@ -207,8 +227,6 @@ int main(int argc, char* argv[])
     glutDisplayFunc(affichage);
     glutKeyboardFunc(clavier);
     glutReshapeFunc(redimensionner);
-
-    partie.initialisationPartie();
 
     // Lancement de la boucle infinie GLUT
     glutMainLoop();

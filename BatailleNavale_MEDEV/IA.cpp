@@ -33,7 +33,7 @@ char randomOrientation() {
 	}
 }
 
-
+/*
 void IA::placerBateaux() {
 	int posX, posY;
 	char orientation;
@@ -83,6 +83,7 @@ void IA::placerBateaux() {
 		possible = grilleIA.placerBateau(2, orientation, posX, posY);
 	}
 }
+*/
 
 bool IA::tirer(Grille grilleJoueur) {
 	int posX, posY;

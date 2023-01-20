@@ -36,7 +36,7 @@ bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
         // Vérification que le bateau ne dépasse pas de la grille sur l'axe des abscisses
         if (x + longueurBateau > 9)
         {
-            std::cout << "Impossible de placer le bateau : il dépasse de la grille sur l'axe des abscisses." << std::endl;
+            //std::cout << "Impossible de placer le bateau : il dépasse de la grille sur l'axe des abscisses." << std::endl;
             return false;
         }
 
@@ -45,16 +45,14 @@ bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
         {
             if (this->cases[i][y] != 0)
             {
-                std::cout << "Impossible de placer le bateau : la case (" << i << ", " << y << ") est déjà occupée." << std::endl;
+                //std::cout << "Impossible de placer le bateau : la case (" << i << ", " << y << ") est déjà occupée." << std::endl;
                 return false;
             }
         }
 
         // Placement du bateau sur la grille
         for (int i = x; i < x + longueurBateau; i++)
-        {
-            cout << cases.size() << endl;
-            cout << cases[0].size() << endl;
+        {            
             this->cases[i][y] = 1;
         }
         return true;
@@ -64,7 +62,7 @@ bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
         // Vérification que le bateau ne dépasse pas de la grille sur l'axe des ordonnées
         if (y - (longueurBateau-1) < 0 )
         {
-            std::cout << "Impossible de placer le bateau : il dépasse de la grille sur l'axe des ordonnées." << std::endl;
+            //std::cout << "Impossible de placer le bateau : il dépasse de la grille sur l'axe des ordonnées." << std::endl;
             return false;
         }
 
@@ -73,7 +71,7 @@ bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
         {
             if (this->cases[x][j] != 0)
             {
-                std::cout << "Impossible de placer le bateau : la case (" << x << ", " << j << ") est déjà occupée." << std::endl;
+                //std::cout << "Impossible de placer le bateau : la case (" << x << ", " << j << ") est déjà occupée." << std::endl;
                 return false;
             }
         }
@@ -236,4 +234,35 @@ void Grille::afficheCase()
             }
         }
     }    
+}
+
+void Grille::initialisationGrilleAI() {
+    // Pour placer les bateaux sur la grille de l'IA
+    int tailleBateau;
+    int numBateau = 5;
+    int posx = rand() % 10;
+    int posy = rand() % 10;
+    bool horizontal = rand() % 2;
+
+    while (numBateau > 0) {
+        // on donne la bonne taille au bateau
+        if (numBateau < 3) {
+            tailleBateau = numBateau + 1;
+        }
+        else {
+            tailleBateau = numBateau;
+        }
+
+        // Tire au sort position et orientation
+        // tant que les emplacements ne sont pas libres
+        while (!this->placerBateau(tailleBateau, horizontal, posx, posy)) {
+            posx = rand() % 10;
+            posy = rand() % 10;
+            horizontal = rand() % 2;
+        }
+
+        // Il vaut mieux commencer par le plus gros pour éviter
+        // de devoir chercher une place trop longtemps
+        numBateau = numBateau - 1;
+    }
 }

@@ -13,6 +13,7 @@ public:
 	~Joueur();
 	void placerBateaux();
 	bool tirer(Grille grilleIA);
+	void afficheAll(Grille grilleIA);
 
 	Grille getGrille() { return grilleJ; }
 

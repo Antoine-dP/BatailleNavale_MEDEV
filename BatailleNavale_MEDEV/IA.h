@@ -11,7 +11,7 @@ public:
 	IA();
 	IA(int longueur, int largeur);
 	~IA();
-	void placerBateaux();
+	//void placerBateaux();
 	bool tirer(Grille grilleJoueur);
 
 	Grille getGrille() { return grilleIA; }
