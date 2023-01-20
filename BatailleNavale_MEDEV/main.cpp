@@ -19,7 +19,7 @@ void dessinerGrille(unsigned int echelle = 1);
 
 Partie partie;
 Grille grilleJoueur;
-Grille grilleAI;
+IA _IA;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -191,12 +191,12 @@ GLvoid affichage() {
         grilleJoueur.afficheAll();
     }
     else {
-        grilleAI.afficheAll();
+        _IA.getGrille().afficheAll();
     }
 
     // dessin du bateau pendant l'initialisation de la partie
     if (!partieInitialisee) {
-        grilleAI.dessineBateau(taille, horizontal, placementX, placementY);
+        grilleJoueur.dessineBateau(taille, horizontal, placementX, placementY);
     }
 
     glFlush();
@@ -211,7 +211,7 @@ int main(int argc, char* argv[])
 {
     // Creation de la partie
     srand(time(0));
-    grilleAI.initialisationGrilleAI();
+    if (_IA.initialiser()) { cout << "Grille adverse bine initialisee\n"; }
 
     // Initialisation de GLUT
     glutInit(&argc, argv);

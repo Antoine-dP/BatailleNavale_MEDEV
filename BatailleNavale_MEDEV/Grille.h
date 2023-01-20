@@ -22,7 +22,6 @@ public:
 
 
     // Méthodes publiques de la classe Grille
-    void initialisationGrilleAI();
     void afficher(); // Afficher dans la commande
     bool placerBateau(int longueurBateau, bool horizontal, int x, int y);
     bool tirer(int x, int y);

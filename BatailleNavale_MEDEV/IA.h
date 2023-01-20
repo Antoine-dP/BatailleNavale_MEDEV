@@ -3,7 +3,7 @@
 
 class IA
 {
-private:
+protected:
 	Grille grilleIA;
 
 
@@ -12,6 +12,7 @@ public:
 	IA(int longueur, int largeur);
 	~IA();
 	//void placerBateaux();
+	bool initialiser();
 	bool tirer(Grille grilleJoueur);
 
 	Grille getGrille() { return grilleIA; }

@@ -17,6 +17,38 @@ IA::~IA()
 {
 }
 
+bool IA::initialiser() {
+	// Pour placer les bateaux sur la grille de l'IA
+	int tailleBateau;
+	int numBateau = 5;
+	int posx = rand() % 10;
+	int posy = rand() % 10;
+	bool horizontal = rand() % 2;
+
+	while (numBateau > 0) {
+		// on donne la bonne taille au bateau
+		if (numBateau < 3) {
+			tailleBateau = numBateau + 1;
+		}
+		else {
+			tailleBateau = numBateau;
+		}
+
+		// Tire au sort position et orientation
+		// tant que les emplacements ne sont pas libres
+		while (!grilleIA.placerBateau(tailleBateau, horizontal, posx, posy)) {
+			posx = rand() % 10;
+			posy = rand() % 10;
+			horizontal = rand() % 2;
+		}
+
+		// Il vaut mieux commencer par le plus gros pour éviter
+		// de devoir chercher une place trop longtemps
+		numBateau = numBateau - 1;
+	}
+	return true;
+}
+
 // Initializing random number generator in C++ (0 to 9)
 int randomNumber() {
 	srand(time(0));
