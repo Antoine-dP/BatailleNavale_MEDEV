@@ -41,6 +41,7 @@ public:
     void afficher(); // Afficher dans la commande
     bool placerBateau(int longueurBateau, bool horizontal, int x, int y);
     bool tirer(int x, int y);
+    void tireNaifIA();
 
     // OPENGL
     void afficheAll();
@@ -49,5 +50,5 @@ public:
     void afficheCase();
     void dessineUnCarre(int i, int j, bool couleurClaire);
     void dessineBateau(int taille, bool orientation, int posX, int posY);
-    void dessineCroix(int i, int j, bool touche);
+    void dessineCroix(int i, int j);
 };

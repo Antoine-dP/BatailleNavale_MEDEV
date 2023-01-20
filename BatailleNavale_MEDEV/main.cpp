@@ -30,70 +30,88 @@ GLvoid clavier(unsigned char touche, int x, int y) {
     
     switch (touche) {
 
-        if (!partieInitialisee) {
-            #pragma region PoseDesBateaux
+        
+            
         // Input valides seulement pendant que le joueur
         // place ses bateaux au début de la partie
         
         // Validation du placement d'un bateau pendant l'initialisation de la partie
         case 13:
         case 'a':
-            if (grilleJoueur.placerBateau(taille, horizontal, placementX, placementY)) {
-                // On réinitialise la position du prochain bateau à placer
-                placementX = 0;
-                placementY = 10;
+            if (!partieInitialisee) {
+                #pragma region PoseDesBateaux
+                if (grilleJoueur.placerBateau(taille, horizontal, placementX, placementY)) {
+                    // On réinitialise la position du prochain bateau à placer
+                    placementX = 0;
+                    placementY = 10;
 
-                // on donne la bonne taille au prochain bateau
-                numBateau++;
-                if (numBateau < 3) {
-                    taille = numBateau + 1;
-                }
-                else {
-                    taille = numBateau;
-                }
+                    // on donne la bonne taille au prochain bateau
+                    numBateau++;
+                    if (numBateau < 3) {
+                        taille = numBateau + 1;
+                    }
+                    else {
+                        taille = numBateau;
+                    }
 
-                if (numBateau > 5) {
-                    cout << "Vous avez pose tous vos bateaux\n";
-                    partieInitialisee = true;
-                    taille = 0;
-                    grilleJoueur.setCouleurGrille(0.47, 0.71, 0.99);
+                    if (numBateau > 5) {
+                        cout << "Vous avez pose tous vos bateaux\n";
+                        partieInitialisee = true;
+                        taille = 0;
+                        grilleJoueur.setCouleurGrille(0.47, 0.71, 0.99);
+                    }
                 }
+#pragma endregion
             }
+            else {
+                #pragma region Tirer
+                // il faut que le joueur soit sur la grille de l'IA
+                if (!afficheJoueur) {
+                    // s'il est possible de tirer sur la case choisie par le joueur
+                    // alors le tir est effectué
+                    if (_IA.tireSurIA(placementX, placementY)) {
+                        // et l'IA a le droit de tirer
+                        grilleJoueur.tireNaifIA();
+                        // et on retourne sur la grille du joueur
+                        afficheJoueur = true;
+                    }
+                    else {
+                        cout << "case non disponible\n";
+                    }
+                }               
+#pragma endregion
+            }
+
             break;
         case 'r':
             horizontal = !horizontal;
             break;
-#pragma endregion
-        }
-        else {
-            #pragma region ChangerGrilleAffichee
+        
+            
         case 'm':
-            afficheJoueur = !afficheJoueur;
+            if (partieInitialisee) {
+                #pragma region ChangerGrilleAffichee
+                afficheJoueur = !afficheJoueur;
+                placementX = 0;
+                placementY = 9;                
+#pragma endregion
+            }
             break;
-#pragma endregion
-
-            #pragma region Tirer
-#pragma endregion
-        }
         
         #pragma region DeplacementCurseur
     // Deplacement du curseur 'placement' sur la grille
     // X et Y dans (0,9)x(0,9)
     // (O,O) en bas à gauche
     case 's':
-        cout << "down\n";
         placementY = placementY - 1;
         break;
     case 'z':
-        cout << "up\n";
         placementY++;
         break;
     case 'q':
-        cout << "left\n";
         placementX = placementX - 1;
         break;
     case 'd':
-        cout << "right\n";
         placementX++;
         break;    
     case 27:
@@ -199,6 +217,9 @@ GLvoid affichage() {
     // dessin du bateau pendant l'initialisation de la partie
     if (!partieInitialisee) {
         grilleJoueur.dessineBateau(taille, horizontal, placementX, placementY);
+    }
+    else if (!afficheJoueur) {
+        _IA.getGrille().dessineCroix(placementX, placementY);
     }
 
     glFlush();

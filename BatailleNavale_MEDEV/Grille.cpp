@@ -97,16 +97,30 @@ bool Grille::tirer(int x, int y)
     {
         // Si la case contient un bateau (indiqué par la valeur 1),
         // on modifie la valeur de la case pour indiquer que le bateau a été touché
+        cout << "touché\n";
         this->cases[x][y] = 2;
-        return true; // On retourne true pour indiquer que le tir a touché un bateau
+        return true; // On retourne true pour indiquer que le tir a été effectué
     }
-    else
+    else if (this->cases[x][y] == 0)
     {
         // Si la case ne contient pas de bateau (indiqué par la valeur 0),
         // on modifie la valeur de la case pour indiquer que la case a été visée
         this->cases[x][y] = 3;
-        return false; // On retourne false pour indiquer que le tir a raté
+        return true; // On retourne false pour indiquer que le tir a été effectué
     }
+    else {
+        // le joueur n'a rien touché
+        cout << "loupé\n";
+        return false;
+    }
+}
+
+void Grille::tireNaifIA() {
+    int posX, posY;
+    posX = rand() % 10;
+    posY = rand() % 10;
+
+    tirer(posX, posY);
 }
 
 // OPENGL
@@ -192,15 +206,19 @@ void Grille::dessineBateau(int taille, bool horizontal, int posX, int posY) {
     }
 }
 
-void Grille::dessineCroix(int posX, int posY, bool touche) {
+void Grille::dessineCroix(int posX, int posY) {
     glBegin(GL_QUADS);
 
-    if (touche) {
+    if (cases[posX][posY] == 2) {
         glColor3f(1.0f, 0.4f, 0.4f);
     }
-    else {
+    else if (cases[posX][posY] == 3) {
         glColor3f(0.7f, 0.7f, 0.7f);
     }
+    else {
+        glColor3f(1.0f, 1.0f, 1.0f);
+    }
+
 
     // 4 sommets du carré
     for (int j = 0; j < 4; j++)
@@ -225,16 +243,17 @@ void Grille::afficheCase()
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 // Juste un bateau
-                if (cases[i][j] == 1) {
+                // seulement pour la grille du joueur
+                if (afficheJoueur && cases[i][j] == 1) {
                     dessineUnCarre(i, j, false);
                 }
                 // Juste un tir loupé
                 else if (cases[i][j] == 3) {
-                    dessineCroix(i, j, false);
+                    dessineCroix(i, j);
                 }
                 // Un tir réussi
                 else if (cases[i][j] == 2) {
-                    dessineCroix(i, j, true);
+                    dessineCroix(i, j);
                     dessineUnCarre(i, j, false);
                 }
             }

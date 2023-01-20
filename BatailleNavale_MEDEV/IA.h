@@ -13,9 +13,8 @@ public:
 	~IA();
 	//void placerBateaux();
 	bool initialiser();
-	bool tirer(Grille grilleJoueur);
-	void afficheAll();
+	bool tireSurIA(int posX, int posY);
+
 
 	Grille getGrille() { return grilleIA; }
-
 };
