@@ -28,16 +28,14 @@ IA _IA;
 // Definition de la fonction gerant les interruptions clavier
 GLvoid clavier(unsigned char touche, int x, int y) {
     
-    switch (touche) {
-
-        
-            
+    switch (touche) {            
         // Input valides seulement pendant que le joueur
         // place ses bateaux au début de la partie
         
         // Validation du placement d'un bateau pendant l'initialisation de la partie
         case 13:
         case 'a':
+        case 'A':
             if (!partieInitialisee) {
                 #pragma region PoseDesBateaux
                 if (grilleJoueur.placerBateau(taille, horizontal, placementX, placementY)) {
@@ -57,7 +55,7 @@ GLvoid clavier(unsigned char touche, int x, int y) {
                     if (numBateau > 5) {
                         cout << "Vous avez pose tous vos bateaux\n";
                         partieInitialisee = true;
-                        taille = 0;
+                        taille = 1;
                         grilleJoueur.setCouleurGrille(0.47, 0.71, 0.99);
                     }
                 }
@@ -83,11 +81,13 @@ GLvoid clavier(unsigned char touche, int x, int y) {
             }
 
             break;
+
+        case 'R':
         case 'r':
             horizontal = !horizontal;
-            break;
-        
+            break;        
             
+        case 'M':
         case 'm':
             if (partieInitialisee) {
                 #pragma region ChangerGrilleAffichee
@@ -97,21 +97,25 @@ GLvoid clavier(unsigned char touche, int x, int y) {
 #pragma endregion
             }
             break;
-        
+
         #pragma region DeplacementCurseur
     // Deplacement du curseur 'placement' sur la grille
     // X et Y dans (0,9)x(0,9)
     // (O,O) en bas à gauche
+    case 'S':
     case 's':
         placementY = placementY - 1;
         break;
     case 'z':
+    case 'Z':
         placementY++;
         break;
     case 'q':
+    case 'Q':
         placementX = placementX - 1;
         break;
     case 'd':
+    case 'D':
         placementX++;
         break;    
     case 27:
@@ -119,7 +123,6 @@ GLvoid clavier(unsigned char touche, int x, int y) {
         break;
 #pragma endregion
     }
-
     #pragma region GestionDepassementCurseur
     // On gère les possibles dépassements du curseur
     if (horizontal) {
@@ -235,6 +238,8 @@ int main(int argc, char* argv[])
     // Creation de la partie
     srand(time(0));
     if (_IA.initialiser()) { cout << "Grille adverse bine initialisee\n"; }
+
+
 
     // Initialisation de GLUT
     glutInit(&argc, argv);
