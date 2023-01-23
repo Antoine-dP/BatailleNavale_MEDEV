@@ -271,8 +271,9 @@ void Grille::afficheCase()
                 }
                 // Un tir réussi
                 else if (cases[i][j] == 2) {
-                    dessineCroix(i, j);
                     dessineUnCarre(i, j, false);
+                    dessineCroix(i, j);
+                    
                 }
             }
         }
