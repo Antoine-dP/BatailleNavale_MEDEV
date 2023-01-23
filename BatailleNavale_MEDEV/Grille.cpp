@@ -50,7 +50,7 @@ bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
         for (int i = x - 1; i < x + longueurBateau + 1; i++)
         {
             if (i >= 0 && i < 10) {
-                if (this->cases[i][y] != 0 || (i < x + longueurBateau && this->cases[i + 1][y] != 0) || (i > x && this->cases[i - 1][y] != 0))
+                if (this->cases[i][y] != 0 && (i < x + longueurBateau && this->cases[i + 1][y] != 0) && (i > x && this->cases[i - 1][y] != 0))
                 {
                     //std::cout << "Impossible de placer le bateau : la case (" << i << ", " << y << ") est déjà occupée." << std::endl;
                     return false;
@@ -78,7 +78,7 @@ bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
         for (int j = y + 1; j > y - longueurBateau - 1; j--)
         {
             if (j >= 0 && j < 10) {
-                if (this->cases[x][j] != 0 || (j < y && this->cases[x][j + 1] != 0) || (j > y - longueurBateau && this->cases[x][j - 1] != 0))
+                if (this->cases[x][j] != 0 && (j < y && this->cases[x][j + 1] != 0) && (j > y - longueurBateau && this->cases[x][j - 1] != 0))
                 {
                     //std::cout << "Impossible de placer le bateau : la case (" << x << ", " << j << ") est déjà occupée." << std::endl;
                     return false;
