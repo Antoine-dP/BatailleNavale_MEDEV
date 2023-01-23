@@ -135,8 +135,18 @@ bool Grille::tirer(int x, int y)
 
 void Grille::tireNaifIA() {
     int posX, posY;
-    posX = rand() % 10;
-    posY = rand() % 10;
+    bool tireDispo = false;
+
+
+    while (!tireDispo) {
+        posX = rand() % 10;
+        posY = rand() % 10;
+
+        if (cases[posX][posY] == 1 || cases[posX][posY] == 0) {
+            tireDispo = true;
+            tirer(posX, posY);
+        }
+    }
 
     tirer(posX, posY);
 }
