@@ -103,7 +103,7 @@ bool Grille::tirer(int x, int y)
         // on modifie la valeur de la case pour indiquer que le bateau a été touché
         cout << "touché\n";
         this->cases[x][y] = 2;
-
+        PlaySound(TEXT("sons\\explosion.wav"), NULL, SND_SYNC);
         // On verifie qu'il reste encore des bateaux à toucher dans la grille
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -122,11 +122,13 @@ bool Grille::tirer(int x, int y)
         // Si la case ne contient pas de bateau (indiqué par la valeur 0),
         // on modifie la valeur de la case pour indiquer que la case a été visée
         this->cases[x][y] = 3;
+        PlaySound(TEXT("sons\\eau.wav"), NULL, SND_SYNC);
         return true; // On retourne false pour indiquer que le tir a été effectué
     }
     else {
         // le joueur n'a rien touché
         cout << "loupé\n";
+        PlaySound(TEXT("sons\\eau.wav"), NULL, SND_SYNC);
         return false;
     }
 }
