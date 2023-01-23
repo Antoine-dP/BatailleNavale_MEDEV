@@ -70,10 +70,12 @@ GLvoid clavier(unsigned char touche, int x, int y) {
                                 joueurGagne = true;
                             }
                             // et l'IA a le droit de tirer
-                            grilleJoueur.tireNaifIA();
-                            if (partieFinie) {
-                                joueurGagne = false;
-                            }
+                            if (!partieFinie) {
+                                grilleJoueur.tireNaifIA();
+                                if (partieFinie) {
+                                    joueurGagne = false;
+                                }
+                            }                            
                             // et on retourne sur la grille du joueur
                             afficheJoueur = true;
                         }
