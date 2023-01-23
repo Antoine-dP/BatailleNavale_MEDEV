@@ -40,7 +40,7 @@ bool Grille::placerBateau(int longueurBateau, bool horizontal, int x, int y)
     if (horizontal)
     {
         // Vérification que le bateau ne dépasse pas de la grille sur l'axe des abscisses
-        if (x + longueurBateau > 9)
+        if (x + longueurBateau > 10)
         {
             //std::cout << "Impossible de placer le bateau : il dépasse de la grille sur l'axe des abscisses." << std::endl;
             return false;
