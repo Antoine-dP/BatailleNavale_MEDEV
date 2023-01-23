@@ -128,7 +128,7 @@ bool Grille::tirer(int x, int y)
     else {
         // le joueur n'a rien touché
         cout << "loupé\n";
-        PlaySound(TEXT("sons\\eau.wav"), NULL, SND_SYNC);
+        
         return false;
     }
 }

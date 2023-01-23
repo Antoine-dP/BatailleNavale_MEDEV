@@ -40,9 +40,11 @@ void Partie::finDePartie(bool joueurGagne) {
 	const char* texteDeFin;
 	if (joueurGagne) {
 		texteDeFin = "Vous avez gagne ! Bravo !";
+		PlaySound(TEXT("sons\\victoire.wav"), NULL, SND_SYNC);
 	}
 	else {
 		texteDeFin = "T'as perdu gros noob";
+		PlaySound(TEXT("sons\\defaite.wav"), NULL, SND_SYNC);
 	}
 
 	cout << endl << texteDeFin;
