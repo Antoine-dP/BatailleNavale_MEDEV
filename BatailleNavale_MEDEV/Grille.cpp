@@ -103,6 +103,18 @@ bool Grille::tirer(int x, int y)
         // on modifie la valeur de la case pour indiquer que le bateau a été touché
         cout << "touché\n";
         this->cases[x][y] = 2;
+
+        // On verifie qu'il reste encore des bateaux à toucher dans la grille
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (this->cases[i][j] == 1) {
+                    return true;
+                }
+            }
+        }
+
+        // Il n'y a plus de bateau à toucher, la partie est finie
+        partieFinie = true;
         return true; // On retourne true pour indiquer que le tir a été effectué
     }
     else if (this->cases[x][y] == 0)

@@ -24,3 +24,27 @@ bool Partie::partieFinie() {
 	}
 	return true;
 }
+
+
+void vBitmapOutput(int x, int y, const char* string, void* font)
+{
+	int len; // len donne la longueur de la chaîne de caractères
+
+	glRasterPos2f(x, y); // Positionne le premier caractère de la chaîne
+	len = (int)strlen(string); // Calcule la longueur de la chaîne
+	for (int i = 0; i < len; i++) glutBitmapCharacter(font, string[i]); // Affiche chaque caractère de la chaîne
+}
+
+
+void Partie::finDePartie(bool joueurGagne) {
+	const char* texteDeFin;
+	if (joueurGagne) {
+		texteDeFin = "Vous avez gagne ! Bravo !";
+	}
+	else {
+		texteDeFin = "T'as perdu gros noob";
+	}
+
+	cout << endl << texteDeFin;
+	vBitmapOutput(windowW / 6, windowH / 2, texteDeFin, GLUT_BITMAP_TIMES_ROMAN_24);
+}

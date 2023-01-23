@@ -53,3 +53,5 @@ extern bool horizontal;
 
 extern bool partieInitialisee;
 extern bool afficheJoueur;
+extern bool partieFinie;
+extern bool joueurGagne;

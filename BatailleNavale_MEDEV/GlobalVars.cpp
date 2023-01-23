@@ -56,3 +56,5 @@ bool partieInitialisee = false;
 
 // Deroulement de la partie
 bool afficheJoueur = true;
+bool partieFinie = false;
+bool joueurGagne;
