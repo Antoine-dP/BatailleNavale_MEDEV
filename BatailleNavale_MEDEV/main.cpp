@@ -140,6 +140,9 @@ GLvoid clavier(unsigned char touche, int x, int y) {
 #pragma endregion
 
     // Demande a GLUT de reafficher la scene
+    glutSetWindow(1);
+    glutPostRedisplay();
+    glutSetWindow(2);
     glutPostRedisplay();
 }
 
@@ -209,24 +212,39 @@ GLvoid affichage() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glMatrixMode(GL_MODELVIEW);
-
-    if (afficheJoueur) {
-        grilleJoueur.afficheAll();
-    }
-    else {
-        _IA.getGrille().afficheAll();
-    }
+    afficheJoueur = true;
+    
+    grilleJoueur.afficheAll();
 
     // dessin du bateau pendant l'initialisation de la partie
     if (!partieInitialisee) {
         grilleJoueur.dessineBateau(taille, horizontal, placementX, placementY);
     }
-    else if (!afficheJoueur) {
-        _IA.getGrille().dessineCroix(placementX, placementY);
-    }
 
     glFlush();
     glutSwapBuffers();
+
+}
+
+GLvoid affichage2() {
+    // Effacement du frame buffer
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glMatrixMode(GL_MODELVIEW);
+
+    afficheJoueur = false;
+    _IA.getGrille().afficheAll();
+
+
+    if (partieInitialisee) {
+        _IA.getGrille().dessineCroix(placementX, placementY);
+    }
+    
+
+     
+    glFlush();
+    glutSwapBuffers();
+
 }
 
 
@@ -249,22 +267,35 @@ int main(int argc, char* argv[])
     glutInitWindowPosition(250, 50);
     // Taille initiale de la fenetre GLUT
     glutInitWindowSize(windowW, windowH);
-    // Creation de la fenetre GLUT
-    glutCreateWindow("Bataille Navale");
 
     // Définition de la couleur d'effacement du framebuffer
     glClearColor(0.10f, 0.10f, 0.40f, 0.0f);
-
     // Initialement on active le Z-buffer
     glEnable(GL_DEPTH_TEST);
-
     // Shading model
     glShadeModel(GL_SMOOTH);
 
+    GLint WindowID1, WindowID2;                  // window ID numbers
+
+/// WINDOW 1
+    // Creation de la fenetre GLUT
+    WindowID1 = glutCreateWindow("Bataille Navale 1");
+    glClearColor(0.10f, 0.10f, 0.40f, 0.0f);
     // Définition des fonctions de callbacks
     glutDisplayFunc(affichage);
     glutKeyboardFunc(clavier);
     glutReshapeFunc(redimensionner);
+/// WINDOW 2
+    // Creation de la fenetre GLUT
+    WindowID2 = glutCreateWindow("Bataille Navale 2");
+    glClearColor(0.10f, 0.10f, 0.40f, 0.0f);
+    // Définition des fonctions de callbacks
+    glutDisplayFunc(affichage2);
+    glutKeyboardFunc(clavier);
+    glutReshapeFunc(redimensionner);
+
+
+    
 
     // Lancement de la boucle infinie GLUT
     glutMainLoop();
